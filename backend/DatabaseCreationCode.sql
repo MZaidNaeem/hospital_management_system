@@ -16,7 +16,7 @@ GO
 
 -- Table: Admin
 CREATE TABLE Admin (
-    admin_id INT PRIMARY KEY IDENTITY(1,1),
+    admin_id INT PRIMARY KEY IDENTIuiTY(1,1),
     branch_id INT NOT NULL DEFAULT 1,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
