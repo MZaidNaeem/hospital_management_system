@@ -17,14 +17,14 @@ GO
 -- Table: Admin
 CREATE TABLE Admin (
     admin_id INT PRIMARY KEY IDENTITY(1,1),
-    hospital_id INT NOT NULL DEFAULT 1,
+    branch_id INT NOT NULL DEFAULT 1,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     cnic VARCHAR(13) UNIQUE,
     email VARCHAR(255) UNIQUE,
     password_hash VARCHAR(255),
     created_at DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (hospital_id) REFERENCES Hospital(hospital_id)
+    FOREIGN KEY (branch_id) REFERENCES Branches(branch_id)
 );
 GO
 

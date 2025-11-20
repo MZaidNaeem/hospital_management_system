@@ -32,7 +32,7 @@ def test_connection():
         try:
             cursor = conn.cursor()
             
-            cursor.execute("SELECT name FROM Admin ")
+            cursor.execute("SELECT * FROM Admin ")
             admins = cursor.fetchall()
             
             print("\n--- Admin Table Data ---")
