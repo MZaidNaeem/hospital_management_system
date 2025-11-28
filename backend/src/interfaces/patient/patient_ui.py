@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'first_interface.ui'
+## Form generated from reading UI file 'designeraEEhmx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,20 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QPushButton,
-    QSizePolicy, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QSizePolicy,
+    QWidget)
 
 class Ui_Frame(object):
     def setupUi(self, Frame):
         if not Frame.objectName():
             Frame.setObjectName(u"Frame")
-        Frame.resize(400, 300)
-        self.pushButton = QPushButton(Frame)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(150, 110, 81, 26))
+        Frame.resize(1430, 690)
         self.label = QLabel(Frame)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(160, 70, 49, 16))
+        self.label.setGeometry(QRect(50, 30, 49, 16))
 
         self.retranslateUi(Frame)
 
@@ -37,7 +34,5 @@ class Ui_Frame(object):
 
     def retranslateUi(self, Frame):
         Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
-        self.pushButton.setText(QCoreApplication.translate("Frame", u"PushButton", None))
-        self.label.setText(QCoreApplication.translate("Frame", u"TextLabel", None))
+        self.label.setText(QCoreApplication.translate("Frame", u"patient", None))
     # retranslateUi
-
