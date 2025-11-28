@@ -15,6 +15,12 @@ class MyApp(QWidget):
         self.ui.setupUi(self)
 
         self.ui.login_button.clicked.connect(self.handle_login)
+
+# -----------------------
+#
+#    handling login
+#
+#------------------------
         
     def handle_login(self):
         cnic = self.ui.cnic_input.text()
@@ -84,6 +90,13 @@ class MyApp(QWidget):
 
         self.role_window.show()
         self.close()
+
+
+# -----------------------
+#
+#    handling admin
+#
+#------------------------
 
 
 if __name__ == "__main__":

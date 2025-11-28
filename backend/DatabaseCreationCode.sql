@@ -23,7 +23,7 @@ CREATE TABLE Admin (
     cnic VARCHAR(13) UNIQUE,
     password VARCHAR(255),
     email VARCHAR(255) UNIQUE,
-    password_hash VARCHAR(255),
+    password VARCHAR(255),
     created_at DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (hospital_id) REFERENCES Hospital(hospital_id)
 );
@@ -57,19 +57,11 @@ CREATE TABLE Patients (
 );
 GO
 
--- Table: Departments
-CREATE TABLE Departments (
-    department_id INT PRIMARY KEY IDENTITY(1,1),
-    branch_id INT NOT NULL,
-    department_name VARCHAR(255),
-    FOREIGN KEY (branch_id) REFERENCES Branches(branch_id)
-);
-GO
 
 -- Table: Staff
 CREATE TABLE Staff (
     staff_id INT PRIMARY KEY IDENTITY(1,1),
-    department_id INT NOT NULL,
+    branch_id INT NOT NULL,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     cnic VARCHAR(13) UNIQUE,
@@ -79,7 +71,7 @@ CREATE TABLE Staff (
     email VARCHAR(255),
     address TEXT,
     hire_date DATE,
-    FOREIGN KEY (department_id) REFERENCES Departments(department_id),
+    FOREIGN KEY (branch_id) REFERENCES branch_id(branch_id),
     CHECK (role IN ('Cleaner', 'Nurse'))
 );
 GO
@@ -87,7 +79,7 @@ GO
 -- Table: Doctors
 CREATE TABLE Doctors (
     doctor_id INT PRIMARY KEY IDENTITY(1,1),
-    department_id INT NOT NULL,
+    branch_id INT NOT NULL,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     cnic VARCHAR(13) UNIQUE,
@@ -96,7 +88,7 @@ CREATE TABLE Doctors (
     contact_number VARCHAR(50),
     email VARCHAR(255),
     created_at DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+    FOREIGN KEY (branch_id) REFERENCES branch_id(branch_id)
 );
 GO
 
