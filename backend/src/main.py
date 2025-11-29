@@ -19,6 +19,7 @@ from interfaces.admin.patients_ui import Ui_Frame as PatientsUI
 from interfaces.admin.medical_record_ui import Ui_Frame as MedicalRecordUI
 from interfaces.admin.branches_ui import Ui_Frame as BranchesUI
 from interfaces.admin.cleaning_service_ui import Ui_Frame as CleaningServiceUI
+from PySide6.QtGui import QStandardItemModel, QStandardItem
 
 
 
@@ -32,9 +33,9 @@ class MyApp(QWidget):
 
         # Stores logged-in user
         self.logged_user = None
-
-        # Stores current open admin window
         self.current_small_window = None
+
+        self.selected_admin_id = None
 
 # ------------------------------------------------
 #                  LOGIN HANDLER
@@ -211,8 +212,220 @@ class MyApp(QWidget):
                 conn.close()
 
 
+    from PySide6.QtGui import QStandardItemModel, QStandardItem
+
+    # ------------------------------------------------
+    #   ADMIN MANAGEMENT — COMPLETE WORKING CODE
+    # ------------------------------------------------
+
     def open_manage_admins(self):
         self.admins_ui = self.open_single_window(AdminsUI)
+
+        # Load data
+        self.load_admins_table()
+
+        # Connect buttons
+        self.admins_ui.admin_add_button.clicked.connect(self.add_admin)
+        self.admins_ui.admin_update_button.clicked.connect(self.update_admin)
+        self.admins_ui.admin_delete_button.clicked.connect(self.delete_admin)
+
+        # Row click
+        self.admins_ui.tableView.clicked.connect(self.admin_row_clicked)
+
+
+    # ------------------------------------------------
+    #   LOAD ALL ADMINS INTO TABLE
+    # ------------------------------------------------
+
+    def load_admins_table(self):
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+        SELECT admin_id, first_name, last_name, email, cnic, password 
+        FROM Admin""")
+        rows = cursor.fetchall()
+
+        model = QStandardItemModel()
+        model.setHorizontalHeaderLabels(["ID", "First Name", "Last Name", "Email", "CNIC", "Password"])
+
+        for row in rows:
+            items = [QStandardItem(str(i)) for i in row]
+            model.appendRow(items)
+
+        self.admins_ui.tableView.setModel(model)
+        self.admins_ui.tableView.resizeColumnsToContents()
+
+        cursor.close()
+        conn.close()
+
+
+    # ------------------------------------------------
+    #  CLICK ROW → PUT VALUES INTO INPUT FIELDS
+    # ------------------------------------------------
+
+    def admin_row_clicked(self, index):
+        row = index.row()
+        model = self.admins_ui.tableView.model()
+
+        # Store selected admin ID
+        self.selected_admin_id = model.index(row, 0).data()
+
+        # Fill inputs
+        self.admins_ui.admin_first_name_input.setText(model.index(row, 1).data())
+        self.admins_ui.admin_last_name_input.setText(model.index(row, 2).data())
+        self.admins_ui.admin_email_input.setText(model.index(row, 3).data())
+        self.admins_ui.admin_cnic_input.setText(model.index(row, 4).data())
+        self.admins_ui.admin_password_input.setText(model.index(row, 5).data())
+
+
+    # ------------------------------------------------
+    #  ADD ADMIN
+    # ------------------------------------------------
+
+    def add_admin(self):
+        fname = self.admins_ui.admin_first_name_input.text()
+        lname = self.admins_ui.admin_last_name_input.text()
+        email = self.admins_ui.admin_email_input.text()
+        cnic = self.admins_ui.admin_cnic_input.text()
+        password = self.admins_ui.admin_password_input.text()
+
+
+        if not fname or not lname or not email or not cnic or not password:
+            self.admins_ui.admin_message_label.setText("All fields are required!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+            return
+
+        try:
+            conn = get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                INSERT INTO Admin (first_name, last_name, email, cnic, password)
+                VALUES (?, ?, ?, ?, ?)
+            """, (fname, lname, email, cnic, password))
+
+            conn.commit()
+
+            self.admins_ui.admin_message_label.setText("Admin added successfully!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: green;")
+
+        except Exception as e:
+            self.admins_ui.admin_message_label.setText("Cnic or Email duplication not allowed")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+
+        finally:
+            cursor.close()
+            conn.close()
+
+        self.load_admins_table()
+
+
+
+    # ------------------------------------------------
+    #  UPDATE ADMIN
+    # ------------------------------------------------
+
+    def update_admin(self):
+        if not self.selected_admin_id:
+            self.admins_ui.admin_message_label.setText("Select an admin first!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+            return
+
+        # Prevent updating own account from here
+        if str(self.selected_admin_id) == str(self.logged_user["admin_id"]):
+            self.admins_ui.admin_message_label.setText("You cannot update your own account here!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+            return
+
+        fname = self.admins_ui.admin_first_name_input.text().strip()
+        lname = self.admins_ui.admin_last_name_input.text().strip()
+        email = self.admins_ui.admin_email_input.text().strip()
+        cnic = self.admins_ui.admin_cnic_input.text().strip()
+        password = self.admins_ui.admin_password_input.text().strip()
+
+        # Validate empty fields
+        if not fname or not lname or not email or not cnic or not password:
+            self.admins_ui.admin_message_label.setText("All fields are required!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+            return
+
+        try:
+            conn = get_connection()
+            cursor = conn.cursor()
+
+            # Check for duplicate CNIC or email (except this admin)
+            cursor.execute(
+                "SELECT admin_id FROM Admin WHERE (email = ? OR cnic = ?) AND admin_id != ?",
+                (email, cnic, self.selected_admin_id)
+            )
+            duplicate = cursor.fetchone()
+
+            if duplicate:
+                self.admins_ui.admin_message_label.setText("Email or CNIC already exists!")
+                self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+                return
+
+            cursor.execute("""
+                UPDATE Admin
+                SET first_name=?, last_name=?, email=?, cnic=?, password=?
+                WHERE admin_id=?
+            """, (fname, lname, email, cnic, password, self.selected_admin_id))
+
+            conn.commit()
+
+            self.admins_ui.admin_message_label.setText("Admin updated successfully!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: green;")
+
+        except Exception as e:
+            self.admins_ui.admin_message_label.setText("Error updating admin!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+
+        finally:
+            cursor.close()
+            conn.close()
+
+        self.load_admins_table()
+
+
+
+    # ------------------------------------------------
+    #  DELETE ADMIN
+    # ------------------------------------------------
+
+    def delete_admin(self):
+        if not self.selected_admin_id:
+            self.admins_ui.admin_message_label.setText("Select an admin first!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+            return
+
+        # Prevent deleting own account
+        if str(self.selected_admin_id) == str(self.logged_user["admin_id"]):
+            self.admins_ui.admin_message_label.setText("You cannot delete your own account!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+            return
+
+        try:
+            conn = get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute("DELETE FROM Admin WHERE admin_id=?", (self.selected_admin_id,))
+            conn.commit()
+
+            self.admins_ui.admin_message_label.setText("Admin deleted successfully!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: green;")
+
+        except Exception as e:
+            self.admins_ui.admin_message_label.setText("Error deleting admin!")
+            self.admins_ui.admin_message_label.setStyleSheet("color: red;")
+
+        finally:
+            cursor.close()
+            conn.close()
+
+        self.load_admins_table()
+
+
 
     def open_manage_rooms(self):
         self.rooms_ui = self.open_single_window(RoomsUI)

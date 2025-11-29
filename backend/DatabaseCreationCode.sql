@@ -16,12 +16,11 @@ GO
 
 -- Table: Admin
 CREATE TABLE Admin (
-    admin_id INT PRIMARY KEY IDENTIuiTY(1,1),
+    admin_id INT PRIMARY KEY IDENTIiTY(1,1),
     hospital_id INT NOT NULL DEFAULT 1,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     cnic VARCHAR(13) UNIQUE,
-    password VARCHAR(255),
     email VARCHAR(255) UNIQUE,
     password VARCHAR(255),
     created_at DATETIME DEFAULT GETDATE(),
