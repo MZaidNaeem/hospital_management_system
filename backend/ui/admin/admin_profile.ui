@@ -23,62 +23,15 @@
       </size>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QLabel" name="admin_first_name">
-          <property name="text">
-           <string>FIRST NAME</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="admin_first_name_input"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="admin_last_name">
-          <property name="text">
-           <string>LAST NAME</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="admin_last_name_input"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="admin_email">
-          <property name="text">
-           <string>EMAIL</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="admin_email_input"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="admin_cnic">
-          <property name="text">
-           <string>CNIC</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="admin_cnic_input"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="admin_password">
-          <property name="text">
-           <string>PASSWORD</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="admin_password_input"/>
-        </item>
-       </layout>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="admin_update_button">
+        <property name="text">
+         <string>UPDATE</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="message_label">
+       <widget class="QLabel" name="admin_message_label">
         <property name="maximumSize">
          <size>
           <width>16777214</width>
@@ -90,12 +43,59 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="admin_update">
-        <property name="text">
-         <string>UPDATE</string>
-        </property>
-       </widget>
+      <item row="1" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="admin_first_name_label">
+          <property name="text">
+           <string>FIRST NAME</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="admin_first_name_input"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="admin_last_name_label">
+          <property name="text">
+           <string>LAST NAME</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="admin_last_name_input"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="admin_email_label">
+          <property name="text">
+           <string>EMAIL</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="admin_email_input"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="admin_cnic_label">
+          <property name="text">
+           <string>CNIC</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="admin_cnic_input"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="admin_password_label">
+          <property name="text">
+           <string>PASSWORD</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="admin_password_input"/>
+        </item>
+       </layout>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="admin_profile_title">
@@ -115,6 +115,17 @@
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="admin_delete_button">
+        <property name="styleSheet">
+         <string notr="true">background-color : &quot;red&quot;
+</string>
+        </property>
+        <property name="text">
+         <string>DELETE</string>
         </property>
        </widget>
       </item>

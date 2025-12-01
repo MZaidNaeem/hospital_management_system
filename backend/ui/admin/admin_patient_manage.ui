@@ -40,14 +40,14 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_8">
                 <item>
-                 <widget class="QLabel" name="label">
+                 <widget class="QLabel" name="title_patient">
                   <property name="font">
                    <font>
                     <pointsize>23</pointsize>
                    </font>
                   </property>
                   <property name="text">
-                   <string>Manage Admins</string>
+                   <string>MANAGE PATIENTS</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -60,10 +60,24 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit"/>
+            <widget class="QLabel" name="patient_first_name_label">
+             <property name="text">
+              <string>FIRST NAME</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="textEdit_5">
+            <widget class="QLineEdit" name="patient_first_name_input"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="patient_last_name_label">
+             <property name="text">
+              <string>SECOND NAME</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="patient_last_name_input">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -73,7 +87,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="textEdit_4">
+            <widget class="QLabel" name="patient_email_label">
+             <property name="text">
+              <string>EMAIL</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="patient_email_input">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -83,16 +104,44 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_4"/>
+            <widget class="QLabel" name="patient_cnic_label">
+             <property name="text">
+              <string>CNIC</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_3"/>
+            <widget class="QLineEdit" name="patient_cnic_input"/>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_2"/>
+            <widget class="QLabel" name="patient_password_label">
+             <property name="text">
+              <string>PASSWORD</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="textEdit_3">
+            <widget class="QLineEdit" name="patient_password_input"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="patient_gender_label">
+             <property name="text">
+              <string>GENDER</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="patient_gender_dropbox"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="patient_contact_label">
+             <property name="text">
+              <string>CONTACT NUMBER</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="patient_contact_input">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -102,7 +151,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox"/>
+            <widget class="QLabel" name="patient_message_label">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QWidget" name="widget_4" native="true">
@@ -116,21 +169,21 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_5">
                 <item>
-                 <widget class="QPushButton" name="pushButton_3">
+                 <widget class="QPushButton" name="patient_add_button">
                   <property name="text">
                    <string>ADD</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton_4">
+                 <widget class="QPushButton" name="patient_update_button">
                   <property name="text">
                    <string>UPDATE</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton_2">
+                 <widget class="QPushButton" name="patient_delete_button">
                   <property name="text">
                    <string>DELETE</string>
                   </property>
@@ -183,7 +236,7 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QLabel" name="label_2">
+               <widget class="QLabel" name="patient_appointments_label">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
@@ -196,7 +249,13 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_2">
+               <widget class="QComboBox" name="patient_appointment_dropbox">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <item>
                  <property name="text">
                   <string>GREATER THAN</string>
@@ -210,10 +269,16 @@
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="textEdit_2">
+               <widget class="QTextEdit" name="patient_appointments_input">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
+                  <width>1000</width>
                   <height>22</height>
                  </size>
                 </property>

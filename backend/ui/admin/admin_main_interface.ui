@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1430</width>
-    <height>690</height>
+    <height>707</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,12 @@
   <layout class="QGridLayout" name="gridLayout_4">
    <item row="0" column="0">
     <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
        <width>1100</width>
@@ -34,6 +40,12 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -49,7 +61,7 @@
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>ADMIN Portal</string>
+         <string>ADMIN PORTAL</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -61,12 +73,38 @@
         <property name="spacing">
          <number>50</number>
         </property>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="admin_manage_appointments">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Appointments</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="admin_manage_branches">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Manage Branches</string>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="admin_mange_admins">
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>30</height>
            </size>
           </property>
           <property name="text">
@@ -79,7 +117,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>30</height>
            </size>
           </property>
           <property name="text">
@@ -87,81 +125,16 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
+        <item row="1" column="0">
          <widget class="QPushButton" name="admin_manage_rooms">
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>30</height>
            </size>
           </property>
           <property name="text">
            <string>Manage Rooms</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QPushButton" name="admin_manage_assignments">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Assignments</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="admin_manage_staff">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Manage Staff</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="admin_manage_billing">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Billing</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="admin_manage_doctors">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Mange Doctors</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="admin_manage_appointments">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Appointments</string>
           </property>
          </widget>
         </item>
@@ -173,7 +146,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>30</height>
            </size>
           </property>
           <property name="text">
@@ -184,42 +157,29 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="admin_manage_medical_record">
+        <item row="0" column="2">
+         <widget class="QPushButton" name="admin_manage_doctors">
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>30</height>
            </size>
           </property>
           <property name="text">
-           <string>Medical Record</string>
+           <string>Mange Doctors</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="3">
-         <widget class="QPushButton" name="admin_manage_branches">
+        <item row="1" column="2">
+         <widget class="QPushButton" name="admin_manage_assignments">
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>30</height>
            </size>
           </property>
           <property name="text">
-           <string>Manage Branches</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QPushButton" name="admin_manage_cleaning_service">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Cleaning Service</string>
+           <string>Assignments</string>
           </property>
          </widget>
         </item>
