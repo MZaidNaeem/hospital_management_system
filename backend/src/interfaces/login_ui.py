@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'loginIMFWGw.ui'
+## Form generated from reading UI file 'loginUQWPpR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -63,7 +63,6 @@ class Ui_Frame(object):
         self.login_as_input.addItem("")
         self.login_as_input.addItem("")
         self.login_as_input.addItem("")
-        self.login_as_input.addItem("")
         self.login_as_input.setObjectName(u"login_as_input")
 
         self.verticalLayout_5.addWidget(self.login_as_input)
@@ -107,9 +106,9 @@ class Ui_Frame(object):
         self.login_as_input.setItemText(0, QCoreApplication.translate("Frame", u"ADMIN", None))
         self.login_as_input.setItemText(1, QCoreApplication.translate("Frame", u"DOCTOR", None))
         self.login_as_input.setItemText(2, QCoreApplication.translate("Frame", u"PATIENT", None))
-        self.login_as_input.setItemText(3, QCoreApplication.translate("Frame", u"STAFF", None))
 
         self.error_label.setText("")
         self.login_button.setText(QCoreApplication.translate("Frame", u"LOGIN", None))
         self.title_label.setText(QCoreApplication.translate("Frame", u"Hospital Management System", None))
     # retranslateUi
+

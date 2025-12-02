@@ -78,11 +78,6 @@
             <string>PATIENT</string>
            </property>
           </item>
-          <item>
-           <property name="text">
-            <string>STAFF</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item>

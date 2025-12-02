@@ -21,7 +21,7 @@ GO
 CREATE TABLE Branches (
     branch_id INT PRIMARY KEY IDENTITY(1,1),
     hospital_id INT NOT NULL DEFAULT 1,
-    branch_name VARCHAR(255),
+    branch_name VARCHAR(255) UNIQUE,
     contact_number VARCHAR(50),
     created_at DATETIME DEFAULT GETDATE(),
     deleted BIT NOT NULL DEFAULT 0;
