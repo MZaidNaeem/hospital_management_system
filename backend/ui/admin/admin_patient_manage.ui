@@ -182,13 +182,6 @@
                   </property>
                  </widget>
                 </item>
-                <item>
-                 <widget class="QPushButton" name="patient_delete_button">
-                  <property name="text">
-                   <string>DELETE</string>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </item>
              </layout>
@@ -236,40 +229,26 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QLabel" name="patient_appointments_label">
+               <widget class="QLabel" name="patient_search_label">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
                   <height>0</height>
                  </size>
                 </property>
-                <property name="text">
-                 <string>APPOINTMENTS</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="patient_appointment_dropbox">
-                <property name="minimumSize">
+                <property name="maximumSize">
                  <size>
-                  <width>120</width>
-                  <height>0</height>
+                  <width>100</width>
+                  <height>16777215</height>
                  </size>
                 </property>
-                <item>
-                 <property name="text">
-                  <string>GREATER THAN</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>LESS THAN</string>
-                 </property>
-                </item>
+                <property name="text">
+                 <string>SEARCH BY CNIC</string>
+                </property>
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="patient_appointments_input">
+               <widget class="QTextEdit" name="patinet_search_input">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -278,9 +257,16 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>1000</width>
+                  <width>300</width>
                   <height>22</height>
                  </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="patinet_search_button">
+                <property name="text">
+                 <string>SEARCH</string>
                 </property>
                </widget>
               </item>

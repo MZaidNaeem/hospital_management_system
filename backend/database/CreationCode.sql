@@ -72,15 +72,18 @@ CREATE TABLE Doctors (
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     email VARCHAR(255),
-    cnic VARCHAR(13) UNIQUE,
+    cnic VARCHAR(13),
     password VARCHAR(255),
     specialty VARCHAR(100),
     contact_number VARCHAR(50),
     created_at DATETIME DEFAULT GETDATE(),
-    deleted BIT NOT NULL DEFAULT 0;
-    FOREIGN KEY (branch_id) REFERENCES Branches(branch_id)
+    deleted BIT NOT NULL DEFAULT 0,
+    CONSTRAINT FK_Doctors_Branch FOREIGN KEY (branch_id) REFERENCES Branches(branch_id),
+    CONSTRAINT UQ_Doctor_Branch_CNIC UNIQUE (branch_id, cnic)
+    CONSTRAINT UQ_Doctor_CNIC_Password UNIQUE (cnic, password);
 );
 GO
+
 
 --------------------------------------------------------
 -- Table: Appointments

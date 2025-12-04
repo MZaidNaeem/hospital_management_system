@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1100</width>
-    <height>600</height>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -161,6 +161,27 @@
             <widget class="QComboBox" name="doctor_branch_dropbox"/>
            </item>
            <item>
+            <widget class="QLabel" name="doctor_delete_label">
+             <property name="text">
+              <string>DELETE</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="doctor_delete_dropbox">
+             <item>
+              <property name="text">
+               <string>YES</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>NO</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="doctor_message_label">
              <property name="text">
               <string/>
@@ -189,13 +210,6 @@
                  <widget class="QPushButton" name="doctor_update_button">
                   <property name="text">
                    <string>UPDATE</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="doctor_delete_button">
-                  <property name="text">
-                   <string>DELETE</string>
                   </property>
                  </widget>
                 </item>
@@ -246,40 +260,26 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QLabel" name="doctor_appointments_label">
+               <widget class="QLabel" name="doctor_search_label">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
                   <height>0</height>
                  </size>
                 </property>
-                <property name="text">
-                 <string>APPOINTMENTS</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="doctor_appointment_dropbox">
-                <property name="minimumSize">
+                <property name="maximumSize">
                  <size>
-                  <width>120</width>
-                  <height>0</height>
+                  <width>100</width>
+                  <height>16777215</height>
                  </size>
                 </property>
-                <item>
-                 <property name="text">
-                  <string>GREATER THAN</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>LESS THAN</string>
-                 </property>
-                </item>
+                <property name="text">
+                 <string>SEARCH BY CNIC</string>
+                </property>
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="doctor_appointments_input">
+               <widget class="QTextEdit" name="doctor_search_input">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -288,9 +288,16 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>1000</width>
+                  <width>300</width>
                   <height>22</height>
                  </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="doctor_search_button">
+                <property name="text">
+                 <string>SEARCH</string>
                 </property>
                </widget>
               </item>

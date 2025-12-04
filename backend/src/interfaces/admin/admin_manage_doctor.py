@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_doctor_manageebQQLD.ui'
+## Form generated from reading UI file 'admin_doctor_manageiIZGpZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -24,7 +24,7 @@ class Ui_Frame(object):
     def setupUi(self, Frame):
         if not Frame.objectName():
             Frame.setObjectName(u"Frame")
-        Frame.resize(1100, 600)
+        Frame.resize(1100, 649)
         self.gridLayout = QGridLayout(Frame)
         self.gridLayout.setObjectName(u"gridLayout")
         self.widget = QWidget(Frame)
@@ -143,6 +143,18 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.doctor_branch_dropbox)
 
+        self.doctor_delete_label = QLabel(self.widget_2)
+        self.doctor_delete_label.setObjectName(u"doctor_delete_label")
+
+        self.verticalLayout_2.addWidget(self.doctor_delete_label)
+
+        self.doctor_delete_dropbox = QComboBox(self.widget_2)
+        self.doctor_delete_dropbox.addItem("")
+        self.doctor_delete_dropbox.addItem("")
+        self.doctor_delete_dropbox.setObjectName(u"doctor_delete_dropbox")
+
+        self.verticalLayout_2.addWidget(self.doctor_delete_dropbox)
+
         self.doctor_message_label = QLabel(self.widget_2)
         self.doctor_message_label.setObjectName(u"doctor_message_label")
 
@@ -164,11 +176,6 @@ class Ui_Frame(object):
         self.doctor_update_button.setObjectName(u"doctor_update_button")
 
         self.horizontalLayout_5.addWidget(self.doctor_update_button)
-
-        self.doctor_delete_button = QPushButton(self.widget_4)
-        self.doctor_delete_button.setObjectName(u"doctor_delete_button")
-
-        self.horizontalLayout_5.addWidget(self.doctor_delete_button)
 
 
         self.horizontalLayout_6.addLayout(self.horizontalLayout_5)
@@ -201,26 +208,24 @@ class Ui_Frame(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.doctor_appointments_label = QLabel(self.widget_5)
-        self.doctor_appointments_label.setObjectName(u"doctor_appointments_label")
-        self.doctor_appointments_label.setMinimumSize(QSize(100, 0))
+        self.doctor_search_label = QLabel(self.widget_5)
+        self.doctor_search_label.setObjectName(u"doctor_search_label")
+        self.doctor_search_label.setMinimumSize(QSize(100, 0))
+        self.doctor_search_label.setMaximumSize(QSize(100, 16777215))
 
-        self.horizontalLayout_2.addWidget(self.doctor_appointments_label)
+        self.horizontalLayout_2.addWidget(self.doctor_search_label)
 
-        self.doctor_appointment_dropbox = QComboBox(self.widget_5)
-        self.doctor_appointment_dropbox.addItem("")
-        self.doctor_appointment_dropbox.addItem("")
-        self.doctor_appointment_dropbox.setObjectName(u"doctor_appointment_dropbox")
-        self.doctor_appointment_dropbox.setMinimumSize(QSize(120, 0))
+        self.doctor_search_input = QTextEdit(self.widget_5)
+        self.doctor_search_input.setObjectName(u"doctor_search_input")
+        self.doctor_search_input.setMinimumSize(QSize(150, 0))
+        self.doctor_search_input.setMaximumSize(QSize(300, 22))
 
-        self.horizontalLayout_2.addWidget(self.doctor_appointment_dropbox)
+        self.horizontalLayout_2.addWidget(self.doctor_search_input)
 
-        self.doctor_appointments_input = QTextEdit(self.widget_5)
-        self.doctor_appointments_input.setObjectName(u"doctor_appointments_input")
-        self.doctor_appointments_input.setMinimumSize(QSize(150, 0))
-        self.doctor_appointments_input.setMaximumSize(QSize(1000, 22))
+        self.doctor_search_button = QPushButton(self.widget_5)
+        self.doctor_search_button.setObjectName(u"doctor_search_button")
 
-        self.horizontalLayout_2.addWidget(self.doctor_appointments_input)
+        self.horizontalLayout_2.addWidget(self.doctor_search_button)
 
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_2)
@@ -251,13 +256,14 @@ class Ui_Frame(object):
         self.doctor_speciality_label.setText(QCoreApplication.translate("Frame", u"SPECIALITY", None))
         self.doctor_contact_label.setText(QCoreApplication.translate("Frame", u"CONTACT NUMBER", None))
         self.doctor_branch_label.setText(QCoreApplication.translate("Frame", u"BRANCH", None))
+        self.doctor_delete_label.setText(QCoreApplication.translate("Frame", u"DELETE", None))
+        self.doctor_delete_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"YES", None))
+        self.doctor_delete_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"NO", None))
+
         self.doctor_message_label.setText("")
         self.doctor_add_button.setText(QCoreApplication.translate("Frame", u"ADD", None))
         self.doctor_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE", None))
-        self.doctor_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE", None))
-        self.doctor_appointments_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENTS", None))
-        self.doctor_appointment_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"GREATER THAN", None))
-        self.doctor_appointment_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"LESS THAN", None))
-
+        self.doctor_search_label.setText(QCoreApplication.translate("Frame", u"SEARCH BY CNIC", None))
+        self.doctor_search_button.setText(QCoreApplication.translate("Frame", u"SEARCH", None))
     # retranslateUi
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_patient_managevOOKEE.ui'
+## Form generated from reading UI file 'admin_patient_manageyOsajm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -155,11 +155,6 @@ class Ui_Frame(object):
 
         self.horizontalLayout_5.addWidget(self.patient_update_button)
 
-        self.patient_delete_button = QPushButton(self.widget_4)
-        self.patient_delete_button.setObjectName(u"patient_delete_button")
-
-        self.horizontalLayout_5.addWidget(self.patient_delete_button)
-
 
         self.horizontalLayout_6.addLayout(self.horizontalLayout_5)
 
@@ -191,26 +186,24 @@ class Ui_Frame(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.patient_appointments_label = QLabel(self.widget_5)
-        self.patient_appointments_label.setObjectName(u"patient_appointments_label")
-        self.patient_appointments_label.setMinimumSize(QSize(100, 0))
+        self.patient_search_label = QLabel(self.widget_5)
+        self.patient_search_label.setObjectName(u"patient_search_label")
+        self.patient_search_label.setMinimumSize(QSize(100, 0))
+        self.patient_search_label.setMaximumSize(QSize(100, 16777215))
 
-        self.horizontalLayout_2.addWidget(self.patient_appointments_label)
+        self.horizontalLayout_2.addWidget(self.patient_search_label)
 
-        self.patient_appointment_dropbox = QComboBox(self.widget_5)
-        self.patient_appointment_dropbox.addItem("")
-        self.patient_appointment_dropbox.addItem("")
-        self.patient_appointment_dropbox.setObjectName(u"patient_appointment_dropbox")
-        self.patient_appointment_dropbox.setMinimumSize(QSize(120, 0))
+        self.patinet_search_input = QTextEdit(self.widget_5)
+        self.patinet_search_input.setObjectName(u"patinet_search_input")
+        self.patinet_search_input.setMinimumSize(QSize(150, 0))
+        self.patinet_search_input.setMaximumSize(QSize(300, 22))
 
-        self.horizontalLayout_2.addWidget(self.patient_appointment_dropbox)
+        self.horizontalLayout_2.addWidget(self.patinet_search_input)
 
-        self.patient_appointments_input = QTextEdit(self.widget_5)
-        self.patient_appointments_input.setObjectName(u"patient_appointments_input")
-        self.patient_appointments_input.setMinimumSize(QSize(150, 0))
-        self.patient_appointments_input.setMaximumSize(QSize(1000, 22))
+        self.patinet_search_button = QPushButton(self.widget_5)
+        self.patinet_search_button.setObjectName(u"patinet_search_button")
 
-        self.horizontalLayout_2.addWidget(self.patient_appointments_input)
+        self.horizontalLayout_2.addWidget(self.patinet_search_button)
 
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_2)
@@ -243,10 +236,7 @@ class Ui_Frame(object):
         self.patient_message_label.setText("")
         self.patient_add_button.setText(QCoreApplication.translate("Frame", u"ADD", None))
         self.patient_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE", None))
-        self.patient_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE", None))
-        self.patient_appointments_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENTS", None))
-        self.patient_appointment_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"GREATER THAN", None))
-        self.patient_appointment_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"LESS THAN", None))
-
+        self.patient_search_label.setText(QCoreApplication.translate("Frame", u"SEARCH BY CNIC", None))
+        self.patinet_search_button.setText(QCoreApplication.translate("Frame", u"SEARCH", None))
     # retranslateUi
 
