@@ -63,15 +63,15 @@ class LoginWindow(QWidget):
 
     def open_admin_main_interface(self):
         self.current_window = AdminMainInterfaceController()
-        self.current_window.show_interface()
+        self.current_window.show()
 
     def open_doctor_main_interface(self):
         self.current_window = DoctorMainInterfaceController()
-        self.current_window.show_interface()
+        self.current_window.show()
     
     def open_patient_main_interface(self):
         self.current_window = PatientMainInterfaceController()
-        self.current_window.show_interface()
+        self.current_window.show()
 
 
 def main():

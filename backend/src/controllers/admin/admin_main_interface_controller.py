@@ -31,37 +31,35 @@ class AdminMainInterfaceController(QWidget):
         self.ui.admin_mange_admins.clicked.connect(self.open_manage_admins)
         print
 
-    def show_interface(self):
-        self.show()
 
     def open_manage_patients(self):
         self.window = AdminManagePatientController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_manage_doctors(self):
         self.window = AdminManageDoctorController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_manage_rooms(self):
         self.window = AdminManageRoomsController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_manage_branches(self):
         self.window = AdminManageBranchController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_manage_appointments(self):
         self.window = AdminManageAppointmentController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_manage_assignments(self):
         self.window = AdminManageAssignmentController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_profile(self):
         self.window = AdminProfileController()
-        self.window.show_interface()
+        self.window.show()
 
     def open_manage_admins(self):
         self.window = AdminManageAdminsController()
-        self.window.show_interface()
+        self.window.show()

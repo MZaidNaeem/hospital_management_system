@@ -10,5 +10,4 @@ class AdminProfileController(QWidget):
         self.setWindowTitle("My Profile")
 
 
-    def show_interface(self):
-        self.show()
+

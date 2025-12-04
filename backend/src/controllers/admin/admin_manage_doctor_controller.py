@@ -7,5 +7,3 @@ class AdminManageDoctorController(QWidget):
         self.ui = Ui_Frame()
         self.ui.setupUi(self)
 
-    def show_interface(self):
-        self.show()
