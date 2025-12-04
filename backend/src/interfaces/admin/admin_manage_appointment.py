@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_manage_appointmenteCIaRy.ui'
+## Form generated from reading UI file 'admin_manage_appointmentYreMqv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -89,16 +89,6 @@ class Ui_Frame(object):
         self.ap_doctor_cnic_input.setObjectName(u"ap_doctor_cnic_input")
 
         self.verticalLayout_2.addWidget(self.ap_doctor_cnic_input)
-
-        self.ap_time_label = QLabel(self.widget_2)
-        self.ap_time_label.setObjectName(u"ap_time_label")
-
-        self.verticalLayout_2.addWidget(self.ap_time_label)
-
-        self.ap_time_input = QLineEdit(self.widget_2)
-        self.ap_time_input.setObjectName(u"ap_time_input")
-
-        self.verticalLayout_2.addWidget(self.ap_time_input)
 
         self.ap_status_label = QLabel(self.widget_2)
         self.ap_status_label.setObjectName(u"ap_status_label")
@@ -225,7 +215,6 @@ class Ui_Frame(object):
         self.ap_id_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENT ID", None))
         self.ap_patient_cnic_label.setText(QCoreApplication.translate("Frame", u"PATIENT CNIC", None))
         self.ap_doctor_cnic_label.setText(QCoreApplication.translate("Frame", u"DOCTOR CNIC", None))
-        self.ap_time_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENT TIME", None))
         self.ap_status_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENT STATUS", None))
         self.ap_status_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"Scheduled", None))
         self.ap_status_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"Completed", None))

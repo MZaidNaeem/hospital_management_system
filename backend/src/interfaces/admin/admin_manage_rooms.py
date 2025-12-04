@@ -175,5 +175,3 @@ class Ui_Frame(object):
         self.admin_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE ROOM", None))
         self.admin_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE ROOM", None))
     # retranslateUi
-
-s

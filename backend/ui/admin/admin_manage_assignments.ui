@@ -87,7 +87,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="as_assignment_start_input"/>
+            <widget class="QDateTimeEdit" name="as_assignment_start_input"/>
            </item>
            <item>
             <widget class="QLabel" name="as_assignment_end_label">
@@ -97,7 +97,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="as_assignment_end_input"/>
+            <widget class="QDateTimeEdit" name="as_assignment_end_input"/>
            </item>
            <item>
             <widget class="QLabel" name="admin_message_label">

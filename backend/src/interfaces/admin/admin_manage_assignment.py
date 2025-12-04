@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_manage_assignmentsEVYzFS.ui'
+## Form generated from reading UI file 'admin_manage_assignmentssbCRoD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QTableView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QDateTimeEdit, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QTableView, QVBoxLayout,
+    QWidget)
 
 class Ui_Frame(object):
     def setupUi(self, Frame):
@@ -84,7 +85,7 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.as_assignment_start_label)
 
-        self.as_assignment_start_input = QLineEdit(self.widget_2)
+        self.as_assignment_start_input = QDateTimeEdit(self.widget_2)
         self.as_assignment_start_input.setObjectName(u"as_assignment_start_input")
 
         self.verticalLayout_2.addWidget(self.as_assignment_start_input)
@@ -94,7 +95,7 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.as_assignment_end_label)
 
-        self.as_assignment_end_input = QLineEdit(self.widget_2)
+        self.as_assignment_end_input = QDateTimeEdit(self.widget_2)
         self.as_assignment_end_input.setObjectName(u"as_assignment_end_input")
 
         self.verticalLayout_2.addWidget(self.as_assignment_end_input)

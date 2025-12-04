@@ -22,6 +22,7 @@ def get_connection():
         return None
     
 
+
 def test_connection():
     """
     Tests the database connection and retrieves data from Admin table
@@ -49,3 +50,4 @@ def test_connection():
 
 
 # test_connection()
+# get_connection()

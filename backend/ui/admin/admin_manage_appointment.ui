@@ -90,16 +90,6 @@
             <widget class="QLineEdit" name="ap_doctor_cnic_input"/>
            </item>
            <item>
-            <widget class="QLabel" name="ap_time_label">
-             <property name="text">
-              <string>APPOINTMENT TIME</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="ap_time_input"/>
-           </item>
-           <item>
             <widget class="QLabel" name="ap_status_label">
              <property name="text">
               <string>APPOINTMENT STATUS</string>
