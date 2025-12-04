@@ -47,7 +47,6 @@ class LoginWindow(QWidget):
                 elif role == "PATIENT":
                     self.open_patient_main_interface()
 
-                # print(global_value.current_user)  
             else:
                 self.ui.error_label.setText("Invalid CNIC, password, or role!")
             
@@ -62,16 +61,16 @@ class LoginWindow(QWidget):
                     
 
     def open_admin_main_interface(self):
-        self.current_window = AdminMainInterfaceController()
-        self.current_window.show()
+        global_value.current_user_window = AdminMainInterfaceController()
+        global_value.current_user_window.show()
 
     def open_doctor_main_interface(self):
-        self.current_window = DoctorMainInterfaceController()
-        self.current_window.show()
+        global_value.current_user_window = DoctorMainInterfaceController()
+        global_value.current_user_window.show()
     
     def open_patient_main_interface(self):
-        self.current_window = PatientMainInterfaceController()
-        self.current_window.show()
+        global_value.current_user_window = PatientMainInterfaceController()
+        global_value.current_user_window.show()
 
 
 def main():

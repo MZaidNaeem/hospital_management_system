@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_mangeaNhGUJ.ui'
+## Form generated from reading UI file 'admin_managesDGBDp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QTableView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QTableView, QVBoxLayout,
+    QWidget)
 
 class Ui_Frame(object):
     def setupUi(self, Frame):
@@ -109,6 +110,18 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.admin_password_input)
 
+        self.admin_deleted_label = QLabel(self.widget_2)
+        self.admin_deleted_label.setObjectName(u"admin_deleted_label")
+
+        self.verticalLayout_2.addWidget(self.admin_deleted_label)
+
+        self.admin_deleted_dropbox = QComboBox(self.widget_2)
+        self.admin_deleted_dropbox.addItem("")
+        self.admin_deleted_dropbox.addItem("")
+        self.admin_deleted_dropbox.setObjectName(u"admin_deleted_dropbox")
+
+        self.verticalLayout_2.addWidget(self.admin_deleted_dropbox)
+
         self.admin_message_label = QLabel(self.widget_2)
         self.admin_message_label.setObjectName(u"admin_message_label")
 
@@ -130,11 +143,6 @@ class Ui_Frame(object):
         self.admin_update_button.setObjectName(u"admin_update_button")
 
         self.horizontalLayout_5.addWidget(self.admin_update_button)
-
-        self.admin_delete_button = QPushButton(self.widget_4)
-        self.admin_delete_button.setObjectName(u"admin_delete_button")
-
-        self.horizontalLayout_5.addWidget(self.admin_delete_button)
 
 
         self.horizontalLayout_6.addLayout(self.horizontalLayout_5)
@@ -158,7 +166,36 @@ class Ui_Frame(object):
         self.tableView.setMinimumSize(QSize(0, 0))
         self.tableView.setMaximumSize(QSize(1300, 1300))
 
-        self.gridLayout_2.addWidget(self.tableView, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.tableView, 1, 0, 1, 1)
+
+        self.widget_5 = QWidget(self.widget_3)
+        self.widget_5.setObjectName(u"widget_5")
+        self.horizontalLayout_4 = QHBoxLayout(self.widget_5)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.admin_cnic_search_label = QLabel(self.widget_5)
+        self.admin_cnic_search_label.setObjectName(u"admin_cnic_search_label")
+        self.admin_cnic_search_label.setMaximumSize(QSize(100, 16777215))
+
+        self.horizontalLayout_2.addWidget(self.admin_cnic_search_label)
+
+        self.admin_search_input = QLineEdit(self.widget_5)
+        self.admin_search_input.setObjectName(u"admin_search_input")
+        self.admin_search_input.setMaximumSize(QSize(300, 16777215))
+
+        self.horizontalLayout_2.addWidget(self.admin_search_input)
+
+        self.admin_search_button = QPushButton(self.widget_5)
+        self.admin_search_button.setObjectName(u"admin_search_button")
+
+        self.horizontalLayout_2.addWidget(self.admin_search_button)
+
+
+        self.horizontalLayout_4.addLayout(self.horizontalLayout_2)
+
+
+        self.gridLayout_2.addWidget(self.widget_5, 0, 0, 1, 1)
 
 
         self.horizontalLayout.addWidget(self.widget_3)
@@ -180,9 +217,14 @@ class Ui_Frame(object):
         self.admin_email_label.setText(QCoreApplication.translate("Frame", u"EMAIL", None))
         self.admin_cnic_label.setText(QCoreApplication.translate("Frame", u"CNIC", None))
         self.admin_password_label.setText(QCoreApplication.translate("Frame", u"PASSWORD", None))
+        self.admin_deleted_label.setText(QCoreApplication.translate("Frame", u"Deleted", None))
+        self.admin_deleted_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"YES", None))
+        self.admin_deleted_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"NO", None))
+
         self.admin_message_label.setText("")
         self.admin_add_button.setText(QCoreApplication.translate("Frame", u"ADD ADMIN", None))
         self.admin_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE ADMIN", None))
-        self.admin_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE ADMIN", None))
+        self.admin_cnic_search_label.setText(QCoreApplication.translate("Frame", u"SEARCH BY CNIC", None))
+        self.admin_search_button.setText(QCoreApplication.translate("Frame", u"SEARCH", None))
     # retranslateUi
 

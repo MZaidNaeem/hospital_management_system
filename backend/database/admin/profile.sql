@@ -56,3 +56,61 @@ EXEC LoginUser
     @Password = '123', 
     @Role = 'PATIENT';
 
+
+
+
+
+
+---------------
+--------------- Admin profile update and delete
+---------------
+
+
+
+
+CREATE PROCEDURE UpdateAdminProfile
+    @admin_id INT,
+    @first_name NVARCHAR(100),
+    @last_name NVARCHAR(100),
+    @email NVARCHAR(255),
+    @cnic NVARCHAR(20),
+    @password NVARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE Admin
+    SET 
+        first_name = @first_name,
+        last_name  = @last_name,
+        email      = @email,
+        cnic       = @cnic,
+        password   = @password
+    WHERE admin_id = @admin_id;
+END;
+GO
+
+
+EXEC UpdateAdminProfile 
+    @admin_id = 1, 
+    @first_name = 'Zaid', 
+    @last_name = 'Naeem', 
+    @email = 'zaid@example.com', 
+    @cnic = '1', 
+    @password = '123';
+
+
+
+
+
+CREATE PROCEDURE DeleteAdminProfile
+    @admin_id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- This DELETE will be intercepted by the trigger
+    DELETE FROM admin
+    WHERE admin_id = @admin_id;
+END;
+GO
