@@ -131,7 +131,18 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="patient_gender_dropbox"/>
+            <widget class="QComboBox" name="patient_gender_dropbox">
+             <item>
+              <property name="text">
+               <string>MALE</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>FEMALE</string>
+              </property>
+             </item>
+            </widget>
            </item>
            <item>
             <widget class="QLabel" name="patient_contact_label">
@@ -148,6 +159,27 @@
                <height>22</height>
               </size>
              </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="patient_delete_label">
+             <property name="text">
+              <string>DELETED</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="patient_delete_dropbox">
+             <item>
+              <property name="text">
+               <string>YES</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>NO</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item>

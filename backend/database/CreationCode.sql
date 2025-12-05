@@ -53,7 +53,7 @@ CREATE TABLE Patients (
     patient_id INT PRIMARY KEY IDENTITY(1,1),
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    email VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
     cnic VARCHAR(13) UNIQUE,
     password VARCHAR(255),
     gender VARCHAR(20),

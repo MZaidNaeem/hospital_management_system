@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_patient_manageyOsajm.ui'
+## Form generated from reading UI file 'admin_patient_manageWpkalF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -118,6 +118,8 @@ class Ui_Frame(object):
         self.verticalLayout_2.addWidget(self.patient_gender_label)
 
         self.patient_gender_dropbox = QComboBox(self.widget_2)
+        self.patient_gender_dropbox.addItem("")
+        self.patient_gender_dropbox.addItem("")
         self.patient_gender_dropbox.setObjectName(u"patient_gender_dropbox")
 
         self.verticalLayout_2.addWidget(self.patient_gender_dropbox)
@@ -132,6 +134,18 @@ class Ui_Frame(object):
         self.patient_contact_input.setMaximumSize(QSize(16777215, 22))
 
         self.verticalLayout_2.addWidget(self.patient_contact_input)
+
+        self.patient_delete_label = QLabel(self.widget_2)
+        self.patient_delete_label.setObjectName(u"patient_delete_label")
+
+        self.verticalLayout_2.addWidget(self.patient_delete_label)
+
+        self.patient_delete_dropbox = QComboBox(self.widget_2)
+        self.patient_delete_dropbox.addItem("")
+        self.patient_delete_dropbox.addItem("")
+        self.patient_delete_dropbox.setObjectName(u"patient_delete_dropbox")
+
+        self.verticalLayout_2.addWidget(self.patient_delete_dropbox)
 
         self.patient_message_label = QLabel(self.widget_2)
         self.patient_message_label.setObjectName(u"patient_message_label")
@@ -232,7 +246,14 @@ class Ui_Frame(object):
         self.patient_cnic_label.setText(QCoreApplication.translate("Frame", u"CNIC", None))
         self.patient_password_label.setText(QCoreApplication.translate("Frame", u"PASSWORD", None))
         self.patient_gender_label.setText(QCoreApplication.translate("Frame", u"GENDER", None))
+        self.patient_gender_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"MALE", None))
+        self.patient_gender_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"FEMALE", None))
+
         self.patient_contact_label.setText(QCoreApplication.translate("Frame", u"CONTACT NUMBER", None))
+        self.patient_delete_label.setText(QCoreApplication.translate("Frame", u"DELETED", None))
+        self.patient_delete_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"YES", None))
+        self.patient_delete_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"NO", None))
+
         self.patient_message_label.setText("")
         self.patient_add_button.setText(QCoreApplication.translate("Frame", u"ADD", None))
         self.patient_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE", None))
