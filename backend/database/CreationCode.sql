@@ -85,6 +85,21 @@ CREATE TABLE Doctors (
 GO
 
 
+
+--------------------------------------------------------
+-- Table: Rooms
+--------------------------------------------------------
+CREATE TABLE Rooms (
+    room_id INT PRIMARY KEY,
+    branch_id INT NOT NULL,
+    deleted BIT NOT NULL DEFAULT 0;
+    FOREIGN KEY (branch_id) REFERENCES Branches(branch_id),
+);
+GO
+
+
+
+
 --------------------------------------------------------
 -- Table: Appointments
 --------------------------------------------------------
@@ -98,17 +113,6 @@ CREATE TABLE Appointments (
     FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
     FOREIGN KEY (doctor_id) REFERENCES Doctors(doctor_id),
     CHECK (status IN ('Scheduled', 'Completed', 'Cancelled'))
-);
-GO
-
---------------------------------------------------------
--- Table: Rooms
---------------------------------------------------------
-CREATE TABLE Rooms (
-    room_id INT PRIMARY KEY,
-    branch_id INT NOT NULL,
-    deleted BIT NOT NULL DEFAULT 0;
-    FOREIGN KEY (branch_id) REFERENCES Branches(branch_id),
 );
 GO
 

@@ -6,5 +6,3 @@ class AdminManageAssignmentController(QWidget):
         super().__init__()
         self.ui = Ui_Frame()
         self.ui.setupUi(self)
-
-

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_manage_appointmentYreMqv.ui'
+## Form generated from reading UI file 'admin_manage_appointmentKmoKtH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QTableView, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateTimeEdit, QFrame,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QPushButton, QSizePolicy, QTableView,
+    QVBoxLayout, QWidget)
 
 class Ui_Frame(object):
     def setupUi(self, Frame):
@@ -60,15 +60,15 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.widget_6)
 
-        self.ap_id_label = QLabel(self.widget_2)
-        self.ap_id_label.setObjectName(u"ap_id_label")
+        self.label = QLabel(self.widget_2)
+        self.label.setObjectName(u"label")
 
-        self.verticalLayout_2.addWidget(self.ap_id_label)
+        self.verticalLayout_2.addWidget(self.label)
 
-        self.ap_id_input = QLineEdit(self.widget_2)
-        self.ap_id_input.setObjectName(u"ap_id_input")
+        self.appointment_branch = QComboBox(self.widget_2)
+        self.appointment_branch.setObjectName(u"appointment_branch")
 
-        self.verticalLayout_2.addWidget(self.ap_id_input)
+        self.verticalLayout_2.addWidget(self.appointment_branch)
 
         self.ap_patient_cnic_label = QLabel(self.widget_2)
         self.ap_patient_cnic_label.setObjectName(u"ap_patient_cnic_label")
@@ -90,6 +90,36 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.ap_doctor_cnic_input)
 
+        self.as_room_id_label = QLabel(self.widget_2)
+        self.as_room_id_label.setObjectName(u"as_room_id_label")
+
+        self.verticalLayout_2.addWidget(self.as_room_id_label)
+
+        self.ap_room_id_input = QLineEdit(self.widget_2)
+        self.ap_room_id_input.setObjectName(u"ap_room_id_input")
+
+        self.verticalLayout_2.addWidget(self.ap_room_id_input)
+
+        self.as_assignment_start_label = QLabel(self.widget_2)
+        self.as_assignment_start_label.setObjectName(u"as_assignment_start_label")
+
+        self.verticalLayout_2.addWidget(self.as_assignment_start_label)
+
+        self.ap_assignment_start_input = QDateTimeEdit(self.widget_2)
+        self.ap_assignment_start_input.setObjectName(u"ap_assignment_start_input")
+
+        self.verticalLayout_2.addWidget(self.ap_assignment_start_input)
+
+        self.as_assignment_end_label = QLabel(self.widget_2)
+        self.as_assignment_end_label.setObjectName(u"as_assignment_end_label")
+
+        self.verticalLayout_2.addWidget(self.as_assignment_end_label)
+
+        self.ap_assignment_end_input = QDateTimeEdit(self.widget_2)
+        self.ap_assignment_end_input.setObjectName(u"ap_assignment_end_input")
+
+        self.verticalLayout_2.addWidget(self.ap_assignment_end_input)
+
         self.ap_status_label = QLabel(self.widget_2)
         self.ap_status_label.setObjectName(u"ap_status_label")
 
@@ -105,7 +135,7 @@ class Ui_Frame(object):
 
         self.admin_message_label = QLabel(self.widget_2)
         self.admin_message_label.setObjectName(u"admin_message_label")
-        self.admin_message_label.setMaximumSize(QSize(16777215, 23))
+        self.admin_message_label.setMaximumSize(QSize(16777215, 50))
 
         self.verticalLayout_2.addWidget(self.admin_message_label)
 
@@ -153,16 +183,18 @@ class Ui_Frame(object):
         self.tableView.setMinimumSize(QSize(0, 0))
         self.tableView.setMaximumSize(QSize(1300, 1300))
 
-        self.gridLayout_2.addWidget(self.tableView, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.tableView, 2, 0, 1, 1)
 
         self.widget_5 = QWidget(self.widget_3)
         self.widget_5.setObjectName(u"widget_5")
-        self.horizontalLayout_4 = QHBoxLayout(self.widget_5)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.verticalLayout = QVBoxLayout(self.widget_5)
+        self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.ap_search_doctor_cnic_label = QLabel(self.widget_5)
         self.ap_search_doctor_cnic_label.setObjectName(u"ap_search_doctor_cnic_label")
+        self.ap_search_doctor_cnic_label.setMinimumSize(QSize(100, 0))
+        self.ap_search_doctor_cnic_label.setMaximumSize(QSize(1000, 16777215))
 
         self.horizontalLayout_2.addWidget(self.ap_search_doctor_cnic_label)
 
@@ -171,31 +203,53 @@ class Ui_Frame(object):
 
         self.horizontalLayout_2.addWidget(self.ap_search_doctor_cnic_input)
 
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.ap_search_patient_cnic_label = QLabel(self.widget_5)
         self.ap_search_patient_cnic_label.setObjectName(u"ap_search_patient_cnic_label")
+        self.ap_search_patient_cnic_label.setMinimumSize(QSize(100, 0))
+        self.ap_search_patient_cnic_label.setMaximumSize(QSize(1000, 16777215))
 
-        self.horizontalLayout_2.addWidget(self.ap_search_patient_cnic_label)
+        self.horizontalLayout_10.addWidget(self.ap_search_patient_cnic_label)
 
         self.ap_search_patient_cnic_input = QLineEdit(self.widget_5)
         self.ap_search_patient_cnic_input.setObjectName(u"ap_search_patient_cnic_input")
 
-        self.horizontalLayout_2.addWidget(self.ap_search_patient_cnic_input)
-
-        self.ap_search_id_label = QLabel(self.widget_5)
-        self.ap_search_id_label.setObjectName(u"ap_search_id_label")
-
-        self.horizontalLayout_2.addWidget(self.ap_search_id_label)
-
-        self.ap_search_id_input_2 = QLineEdit(self.widget_5)
-        self.ap_search_id_input_2.setObjectName(u"ap_search_id_input_2")
-
-        self.horizontalLayout_2.addWidget(self.ap_search_id_input_2)
+        self.horizontalLayout_10.addWidget(self.ap_search_patient_cnic_input)
 
 
-        self.horizontalLayout_4.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_10)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.as_search_room_id_label = QLabel(self.widget_5)
+        self.as_search_room_id_label.setObjectName(u"as_search_room_id_label")
+        self.as_search_room_id_label.setMinimumSize(QSize(100, 0))
+        self.as_search_room_id_label.setMaximumSize(QSize(1000, 16777215))
+
+        self.horizontalLayout_4.addWidget(self.as_search_room_id_label)
+
+        self.ap_search_room_id_input = QLineEdit(self.widget_5)
+        self.ap_search_room_id_input.setObjectName(u"ap_search_room_id_input")
+
+        self.horizontalLayout_4.addWidget(self.ap_search_room_id_input)
+
+        self.search_status_dropbox = QComboBox(self.widget_5)
+        self.search_status_dropbox.addItem("")
+        self.search_status_dropbox.addItem("")
+        self.search_status_dropbox.addItem("")
+        self.search_status_dropbox.setObjectName(u"search_status_dropbox")
+
+        self.horizontalLayout_4.addWidget(self.search_status_dropbox)
 
 
-        self.gridLayout_2.addWidget(self.widget_5, 0, 0, 1, 1)
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
+
+
+        self.gridLayout_2.addWidget(self.widget_5, 1, 0, 1, 1)
 
 
         self.horizontalLayout.addWidget(self.widget_3)
@@ -212,9 +266,12 @@ class Ui_Frame(object):
     def retranslateUi(self, Frame):
         Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
         self.title_label.setText(QCoreApplication.translate("Frame", u"MANAGE APPOINTMENTS", None))
-        self.ap_id_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENT ID", None))
+        self.label.setText(QCoreApplication.translate("Frame", u"BRANCH", None))
         self.ap_patient_cnic_label.setText(QCoreApplication.translate("Frame", u"PATIENT CNIC", None))
         self.ap_doctor_cnic_label.setText(QCoreApplication.translate("Frame", u"DOCTOR CNIC", None))
+        self.as_room_id_label.setText(QCoreApplication.translate("Frame", u"ROOM ID", None))
+        self.as_assignment_start_label.setText(QCoreApplication.translate("Frame", u"ASSIGNMENT START", None))
+        self.as_assignment_end_label.setText(QCoreApplication.translate("Frame", u"ASSIGNMENT END", None))
         self.ap_status_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENT STATUS", None))
         self.ap_status_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"Scheduled", None))
         self.ap_status_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"Completed", None))
@@ -226,6 +283,10 @@ class Ui_Frame(object):
         self.admin_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE", None))
         self.ap_search_doctor_cnic_label.setText(QCoreApplication.translate("Frame", u"DOCTOR CNIC", None))
         self.ap_search_patient_cnic_label.setText(QCoreApplication.translate("Frame", u"PATIENT CNIC", None))
-        self.ap_search_id_label.setText(QCoreApplication.translate("Frame", u"APPOINTMENT ID", None))
+        self.as_search_room_id_label.setText(QCoreApplication.translate("Frame", u"ROOM ID", None))
+        self.search_status_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"Scheduled", None))
+        self.search_status_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"Completed", None))
+        self.search_status_dropbox.setItemText(2, QCoreApplication.translate("Frame", u"Cancelled", None))
+
     # retranslateUi
 

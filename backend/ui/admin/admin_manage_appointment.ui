@@ -60,14 +60,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="ap_id_label">
+            <widget class="QLabel" name="label">
              <property name="text">
-              <string>APPOINTMENT ID</string>
+              <string>BRANCH</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="ap_id_input"/>
+            <widget class="QComboBox" name="appointment_branch"/>
            </item>
            <item>
             <widget class="QLabel" name="ap_patient_cnic_label">
@@ -88,6 +88,36 @@
            </item>
            <item>
             <widget class="QLineEdit" name="ap_doctor_cnic_input"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="as_room_id_label">
+             <property name="text">
+              <string>ROOM ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="ap_room_id_input"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="as_assignment_start_label">
+             <property name="text">
+              <string>ASSIGNMENT START</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateTimeEdit" name="ap_assignment_start_input"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="as_assignment_end_label">
+             <property name="text">
+              <string>ASSIGNMENT END</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateTimeEdit" name="ap_assignment_end_input"/>
            </item>
            <item>
             <widget class="QLabel" name="ap_status_label">
@@ -179,7 +209,7 @@
          </size>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QTableView" name="tableView">
            <property name="minimumSize">
             <size>
@@ -195,13 +225,25 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
+         <item row="1" column="0">
           <widget class="QWidget" name="widget_5" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
                <widget class="QLabel" name="ap_search_doctor_cnic_label">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>DOCTOR CNIC</string>
                 </property>
@@ -210,8 +252,24 @@
               <item>
                <widget class="QLineEdit" name="ap_search_doctor_cnic_input"/>
               </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
               <item>
                <widget class="QLabel" name="ap_search_patient_cnic_label">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>PATIENT CNIC</string>
                 </property>
@@ -220,15 +278,50 @@
               <item>
                <widget class="QLineEdit" name="ap_search_patient_cnic_input"/>
               </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
-               <widget class="QLabel" name="ap_search_id_label">
+               <widget class="QLabel" name="as_search_room_id_label">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>1000</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="text">
-                 <string>APPOINTMENT ID</string>
+                 <string>ROOM ID</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="ap_search_id_input_2"/>
+               <widget class="QLineEdit" name="ap_search_room_id_input"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="search_status_dropbox">
+                <item>
+                 <property name="text">
+                  <string>Scheduled</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Completed</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cancelled</string>
+                 </property>
+                </item>
+               </widget>
               </item>
              </layout>
             </item>
