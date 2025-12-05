@@ -105,13 +105,10 @@ GO
 -- Table: Rooms
 --------------------------------------------------------
 CREATE TABLE Rooms (
-    room_id INT PRIMARY KEY IDENTITY(1,1),
+    room_id INT PRIMARY KEY,
     branch_id INT NOT NULL,
-    status VARCHAR(20) DEFAULT 'Available',
-    last_serviced DATETIME,
     deleted BIT NOT NULL DEFAULT 0;
     FOREIGN KEY (branch_id) REFERENCES Branches(branch_id),
-    CHECK (status IN ('Available', 'Occupied', 'Under Maintenance'))
 );
 GO
 

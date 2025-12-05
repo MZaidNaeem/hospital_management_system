@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_room_manageRqzzxJ.ui'
+## Form generated from reading UI file 'admin_room_manageNPldbf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -24,7 +24,7 @@ class Ui_Frame(object):
     def setupUi(self, Frame):
         if not Frame.objectName():
             Frame.setObjectName(u"Frame")
-        Frame.resize(1100, 600)
+        Frame.resize(800, 500)
         self.gridLayout = QGridLayout(Frame)
         self.gridLayout.setObjectName(u"gridLayout")
         self.widget = QWidget(Frame)
@@ -62,7 +62,7 @@ class Ui_Frame(object):
 
         self.admin_room_no_label = QLabel(self.widget_2)
         self.admin_room_no_label.setObjectName(u"admin_room_no_label")
-        self.admin_room_no_label.setMaximumSize(QSize(16777215, 50))
+        self.admin_room_no_label.setMaximumSize(QSize(16777215, 20))
 
         self.verticalLayout_2.addWidget(self.admin_room_no_label)
 
@@ -71,23 +71,9 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.admin_room_input)
 
-        self.admin_status_label = QLabel(self.widget_2)
-        self.admin_status_label.setObjectName(u"admin_status_label")
-        self.admin_status_label.setMaximumSize(QSize(16777215, 50))
-
-        self.verticalLayout_2.addWidget(self.admin_status_label)
-
-        self.admin_status_dropbox = QComboBox(self.widget_2)
-        self.admin_status_dropbox.addItem("")
-        self.admin_status_dropbox.addItem("")
-        self.admin_status_dropbox.addItem("")
-        self.admin_status_dropbox.setObjectName(u"admin_status_dropbox")
-
-        self.verticalLayout_2.addWidget(self.admin_status_dropbox)
-
         self.admin_branch_label = QLabel(self.widget_2)
         self.admin_branch_label.setObjectName(u"admin_branch_label")
-        self.admin_branch_label.setMaximumSize(QSize(16777215, 50))
+        self.admin_branch_label.setMaximumSize(QSize(16777215, 20))
 
         self.verticalLayout_2.addWidget(self.admin_branch_label)
 
@@ -96,9 +82,22 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.admin_branch_dropbox)
 
+        self.label = QLabel(self.widget_2)
+        self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_2.addWidget(self.label)
+
+        self.room_delete_dropbox = QComboBox(self.widget_2)
+        self.room_delete_dropbox.addItem("")
+        self.room_delete_dropbox.addItem("")
+        self.room_delete_dropbox.setObjectName(u"room_delete_dropbox")
+
+        self.verticalLayout_2.addWidget(self.room_delete_dropbox)
+
         self.admin_message_label = QLabel(self.widget_2)
         self.admin_message_label.setObjectName(u"admin_message_label")
-        self.admin_message_label.setMaximumSize(QSize(16777215, 40))
+        self.admin_message_label.setMaximumSize(QSize(16777215, 20))
 
         self.verticalLayout_2.addWidget(self.admin_message_label)
 
@@ -118,11 +117,6 @@ class Ui_Frame(object):
         self.admin_update_button.setObjectName(u"admin_update_button")
 
         self.horizontalLayout_5.addWidget(self.admin_update_button)
-
-        self.admin_delete_button = QPushButton(self.widget_4)
-        self.admin_delete_button.setObjectName(u"admin_delete_button")
-
-        self.horizontalLayout_5.addWidget(self.admin_delete_button)
 
 
         self.horizontalLayout_6.addLayout(self.horizontalLayout_5)
@@ -146,7 +140,35 @@ class Ui_Frame(object):
         self.tableView.setMinimumSize(QSize(0, 0))
         self.tableView.setMaximumSize(QSize(1300, 1300))
 
-        self.gridLayout_2.addWidget(self.tableView, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.tableView, 1, 0, 1, 1)
+
+        self.widget_5 = QWidget(self.widget_3)
+        self.widget_5.setObjectName(u"widget_5")
+        self.horizontalLayout_4 = QHBoxLayout(self.widget_5)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.label_2 = QLabel(self.widget_5)
+        self.label_2.setObjectName(u"label_2")
+
+        self.horizontalLayout_2.addWidget(self.label_2)
+
+        self.room_branch_search_dropbox = QComboBox(self.widget_5)
+        self.room_branch_search_dropbox.addItem("")
+        self.room_branch_search_dropbox.setObjectName(u"room_branch_search_dropbox")
+
+        self.horizontalLayout_2.addWidget(self.room_branch_search_dropbox)
+
+        self.room_search_button = QPushButton(self.widget_5)
+        self.room_search_button.setObjectName(u"room_search_button")
+
+        self.horizontalLayout_2.addWidget(self.room_search_button)
+
+
+        self.horizontalLayout_4.addLayout(self.horizontalLayout_2)
+
+
+        self.gridLayout_2.addWidget(self.widget_5, 0, 0, 1, 1)
 
 
         self.horizontalLayout.addWidget(self.widget_3)
@@ -164,14 +186,17 @@ class Ui_Frame(object):
         Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
         self.title_label.setText(QCoreApplication.translate("Frame", u"MANAGE ROOMS", None))
         self.admin_room_no_label.setText(QCoreApplication.translate("Frame", u"ROOM NO", None))
-        self.admin_status_label.setText(QCoreApplication.translate("Frame", u"STATUS", None))
-        self.admin_status_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"Available", None))
-        self.admin_status_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"Occupied", None))
-        self.admin_status_dropbox.setItemText(2, QCoreApplication.translate("Frame", u"Under Maintenance", None))
-
         self.admin_branch_label.setText(QCoreApplication.translate("Frame", u"BRANCH", None))
+        self.label.setText(QCoreApplication.translate("Frame", u"DELETED", None))
+        self.room_delete_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"YES", None))
+        self.room_delete_dropbox.setItemText(1, QCoreApplication.translate("Frame", u"NO", None))
+
         self.admin_message_label.setText("")
         self.admin_add_button.setText(QCoreApplication.translate("Frame", u"ADD ROOM", None))
         self.admin_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE ROOM", None))
-        self.admin_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE ROOM", None))
+        self.label_2.setText(QCoreApplication.translate("Frame", u"SEARCH BY BRANCH", None))
+        self.room_branch_search_dropbox.setItemText(0, QCoreApplication.translate("Frame", u"ALL", None))
+
+        self.room_search_button.setText(QCoreApplication.translate("Frame", u"SEARCH", None))
     # retranslateUi
+

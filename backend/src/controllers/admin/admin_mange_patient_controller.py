@@ -55,7 +55,8 @@ class AdminManagePatientController(QWidget):
         self.ui.patient_password_input.setText(model.index(row, 5).data())
         self.ui.patient_gender_dropbox.setCurrentText(model.index(row, 6).data())
         self.ui.patient_contact_input.setPlainText(model.index(row, 7).data())
-        self.ui.patient_delete_input.setText(model.index(row, 9).data())
+        self.ui.patient_delete_dropbox.setCurrentText(model.index(row, 9).data())
+
 
     # ----------------------------------------------------
     # ADD PATIENT
