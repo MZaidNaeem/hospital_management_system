@@ -47,6 +47,10 @@ class LoginWindow(QWidget):
                 elif role == "PATIENT":
                     self.open_patient_main_interface()
 
+                self.ui.cnic_input.setText("")
+                self.ui.password_input.setText("")
+
+            
             else:
                 self.ui.error_label.setText("Invalid CNIC, password, or role!")
             

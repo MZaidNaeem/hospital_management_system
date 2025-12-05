@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'designeraEEhmx.ui'
+## Form generated from reading UI file 'patient_main_interfacefHaMuh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,17 +15,52 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QSizePolicy,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
+    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_Frame(object):
     def setupUi(self, Frame):
         if not Frame.objectName():
             Frame.setObjectName(u"Frame")
-        Frame.resize(1430, 690)
-        self.label = QLabel(Frame)
+        Frame.resize(1000, 600)
+        Frame.setMinimumSize(QSize(1000, 600))
+        Frame.setMaximumSize(QSize(10000, 16777215))
+        self.gridLayout = QGridLayout(Frame)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.widget = QWidget(Frame)
+        self.widget.setObjectName(u"widget")
+        self.verticalLayout_3 = QVBoxLayout(self.widget)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(50, 30, 49, 16))
+        self.label.setMaximumSize(QSize(16777215, 50))
+        font = QFont()
+        font.setPointSize(23)
+        self.label.setFont(font)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.label)
+
+        self.gridLayout_2 = QGridLayout()
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.edit_profile_button = QPushButton(self.widget)
+        self.edit_profile_button.setObjectName(u"edit_profile_button")
+        self.edit_profile_button.setMaximumSize(QSize(10000, 16777215))
+
+        self.gridLayout_2.addWidget(self.edit_profile_button, 0, 0, 1, 1)
+
+        self.appointment_button = QPushButton(self.widget)
+        self.appointment_button.setObjectName(u"appointment_button")
+        self.appointment_button.setMaximumSize(QSize(300, 16777215))
+
+        self.gridLayout_2.addWidget(self.appointment_button, 1, 0, 1, 1)
+
+
+        self.verticalLayout_3.addLayout(self.gridLayout_2)
+
+
+        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+
 
         self.retranslateUi(Frame)
 
@@ -34,5 +69,8 @@ class Ui_Frame(object):
 
     def retranslateUi(self, Frame):
         Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
-        self.label.setText(QCoreApplication.translate("Frame", u"patient", None))
+        self.label.setText(QCoreApplication.translate("Frame", u"PATIENT PORTAL", None))
+        self.edit_profile_button.setText(QCoreApplication.translate("Frame", u"EDIT PROFILE", None))
+        self.appointment_button.setText(QCoreApplication.translate("Frame", u"APPOINTMENTS", None))
     # retranslateUi
+

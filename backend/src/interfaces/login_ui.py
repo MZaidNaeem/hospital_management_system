@@ -47,6 +47,7 @@ class Ui_Frame(object):
         self.passoword_lable = QLabel(self.widget)
         self.passoword_lable.setObjectName(u"passoword_lable")
 
+
         self.verticalLayout_5.addWidget(self.passoword_lable)
 
         self.password_input = QLineEdit(self.widget)
