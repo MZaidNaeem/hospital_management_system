@@ -25,6 +25,7 @@ class AdminManageAppointmentController(QWidget):
         self.ui.search_status_dropbox.currentIndexChanged.connect(self.load_appointments)
         self.ui.admin_add_button.clicked.connect(self.add_appointment)
         self.ui.admin_delete_button.clicked.connect(self.delete_appointment)
+        self.ui.admin_update_button.clicked.connect(self.update_appointment)
         
 
         self.ui.tableView.clicked.connect(self.populate_fields_from_table)
@@ -194,10 +195,65 @@ class AdminManageAppointmentController(QWidget):
             except:
                 pass
 
-        # Reload table and clear selection
         self.load_appointments()
         self.clear_appointment_fields()
         self.selected_appointment_id = None
+
+
+    def update_appointment(self):
+        if not self.selected_appointment_id:
+            self.ui.admin_message_label.setText("Select an appointment first!")
+            return
+
+        try:
+            patient_cnic = self.ui.ap_patient_cnic_input.text().strip()
+            doctor_cnic = self.ui.ap_doctor_cnic_input.text().strip()
+            status = self.ui.ap_status_dropbox.currentText()
+            room_id_text = self.ui.ap_room_id_input.text().strip()
+            branch_id = self.ui.appointment_branch.currentData()
+            assignment_start = self.ui.ap_assignment_start_input.dateTime().toPython()
+            assignment_end = self.ui.ap_assignment_end_input.dateTime().toPython()
+
+            if not room_id_text.isdigit():
+                self.ui.admin_message_label.setText("Room ID must be a number")
+                return
+
+            room_id = int(room_id_text)
+
+            conn = get_connection()
+            cursor = conn.cursor()
+            cursor.execute("""
+                EXEC UpdateAppointment
+                    @appointment_id = ?,
+                    @branch_id = ?,
+                    @patient_cnic = ?,
+                    @doctor_cnic = ?,
+                    @status = ?,
+                    @room_id = ?,
+                    @assignment_start = ?,
+                    @assignment_end = ?
+            """, (
+                self.selected_appointment_id,
+                branch_id,
+                patient_cnic,
+                doctor_cnic,
+                status,
+                room_id,
+                assignment_start,
+                assignment_end
+            ))
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            self.ui.admin_message_label.setText("Appointment updated successfully!")
+            self.load_appointments() 
+            self.clear_appointment_fields()
+
+        except Exception as e:
+            msg = global_value.throw_exception(e)
+            self.ui.admin_message_label.setText(msg)
+
 
 
 

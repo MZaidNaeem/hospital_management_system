@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_main_interfaceDaLRWQ.ui'
+## Form generated from reading UI file 'admin_main_interfacenAeuaF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -52,30 +52,11 @@ class Ui_Frame(object):
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setSpacing(50)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.admin_mange_admins = QPushButton(self.widget)
-        self.admin_mange_admins.setObjectName(u"admin_mange_admins")
-        self.admin_mange_admins.setMinimumSize(QSize(0, 30))
+        self.admin_manage_appointments = QPushButton(self.widget)
+        self.admin_manage_appointments.setObjectName(u"admin_manage_appointments")
+        self.admin_manage_appointments.setMinimumSize(QSize(0, 30))
 
-        self.gridLayout_2.addWidget(self.admin_mange_admins, 0, 1, 1, 1)
-
-        self.admin_my_profile = QPushButton(self.widget)
-        self.admin_my_profile.setObjectName(u"admin_my_profile")
-        self.admin_my_profile.setMinimumSize(QSize(0, 30))
-
-        self.gridLayout_2.addWidget(self.admin_my_profile, 0, 0, 1, 1)
-
-        self.admin_manage_rooms = QPushButton(self.widget)
-        self.admin_manage_rooms.setObjectName(u"admin_manage_rooms")
-        self.admin_manage_rooms.setMinimumSize(QSize(0, 30))
-
-        self.gridLayout_2.addWidget(self.admin_manage_rooms, 1, 0, 1, 1)
-
-        self.admin_manage_patients = QPushButton(self.widget)
-        self.admin_manage_patients.setObjectName(u"admin_manage_patients")
-        self.admin_manage_patients.setEnabled(True)
-        self.admin_manage_patients.setMinimumSize(QSize(0, 30))
-
-        self.gridLayout_2.addWidget(self.admin_manage_patients, 0, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.admin_manage_appointments, 1, 2, 1, 1)
 
         self.admin_manage_doctors = QPushButton(self.widget)
         self.admin_manage_doctors.setObjectName(u"admin_manage_doctors")
@@ -83,23 +64,36 @@ class Ui_Frame(object):
 
         self.gridLayout_2.addWidget(self.admin_manage_doctors, 0, 2, 1, 1)
 
-        self.admin_manage_assignments = QPushButton(self.widget)
-        self.admin_manage_assignments.setObjectName(u"admin_manage_assignments")
-        self.admin_manage_assignments.setMinimumSize(QSize(0, 30))
+        self.admin_manage_rooms = QPushButton(self.widget)
+        self.admin_manage_rooms.setObjectName(u"admin_manage_rooms")
+        self.admin_manage_rooms.setMinimumSize(QSize(0, 30))
 
-        self.gridLayout_2.addWidget(self.admin_manage_assignments, 1, 3, 1, 1)
-
-        self.admin_manage_appointments = QPushButton(self.widget)
-        self.admin_manage_appointments.setObjectName(u"admin_manage_appointments")
-        self.admin_manage_appointments.setMinimumSize(QSize(0, 30))
-
-        self.gridLayout_2.addWidget(self.admin_manage_appointments, 1, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.admin_manage_rooms, 1, 0, 1, 1)
 
         self.admin_manage_branches = QPushButton(self.widget)
         self.admin_manage_branches.setObjectName(u"admin_manage_branches")
         self.admin_manage_branches.setMinimumSize(QSize(0, 30))
 
         self.gridLayout_2.addWidget(self.admin_manage_branches, 1, 1, 1, 1)
+
+        self.admin_my_profile = QPushButton(self.widget)
+        self.admin_my_profile.setObjectName(u"admin_my_profile")
+        self.admin_my_profile.setMinimumSize(QSize(0, 30))
+
+        self.gridLayout_2.addWidget(self.admin_my_profile, 0, 0, 1, 1)
+
+        self.admin_mange_admins = QPushButton(self.widget)
+        self.admin_mange_admins.setObjectName(u"admin_mange_admins")
+        self.admin_mange_admins.setMinimumSize(QSize(0, 30))
+
+        self.gridLayout_2.addWidget(self.admin_mange_admins, 0, 1, 1, 1)
+
+        self.admin_manage_patients = QPushButton(self.widget)
+        self.admin_manage_patients.setObjectName(u"admin_manage_patients")
+        self.admin_manage_patients.setEnabled(True)
+        self.admin_manage_patients.setMinimumSize(QSize(0, 30))
+
+        self.gridLayout_2.addWidget(self.admin_manage_patients, 0, 3, 1, 1)
 
 
         self.gridLayout_3.addLayout(self.gridLayout_2, 1, 0, 1, 1)
@@ -119,13 +113,12 @@ class Ui_Frame(object):
     def retranslateUi(self, Frame):
         Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
         self.admin_label.setText(QCoreApplication.translate("Frame", u"ADMIN PORTAL", None))
-        self.admin_mange_admins.setText(QCoreApplication.translate("Frame", u"Manage Admins", None))
-        self.admin_my_profile.setText(QCoreApplication.translate("Frame", u"My Profile", None))
-        self.admin_manage_rooms.setText(QCoreApplication.translate("Frame", u"Manage Rooms", None))
-        self.admin_manage_patients.setText(QCoreApplication.translate("Frame", u"Manage Patients", None))
-        self.admin_manage_doctors.setText(QCoreApplication.translate("Frame", u"Mange Doctors", None))
-        self.admin_manage_assignments.setText(QCoreApplication.translate("Frame", u"Assignments", None))
         self.admin_manage_appointments.setText(QCoreApplication.translate("Frame", u"Appointments", None))
+        self.admin_manage_doctors.setText(QCoreApplication.translate("Frame", u"Mange Doctors", None))
+        self.admin_manage_rooms.setText(QCoreApplication.translate("Frame", u"Manage Rooms", None))
         self.admin_manage_branches.setText(QCoreApplication.translate("Frame", u"Manage Branches", None))
+        self.admin_my_profile.setText(QCoreApplication.translate("Frame", u"My Profile", None))
+        self.admin_mange_admins.setText(QCoreApplication.translate("Frame", u"Manage Admins", None))
+        self.admin_manage_patients.setText(QCoreApplication.translate("Frame", u"Manage Patients", None))
     # retranslateUi
 

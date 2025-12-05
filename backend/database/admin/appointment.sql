@@ -93,12 +93,6 @@ GO
 
 
 
-
-
-
-
-
-
 ALTER PROCEDURE GetAppointments
     @doctor_cnic VARCHAR(13) = NULL,
     @patient_cnic VARCHAR(13) = NULL,
@@ -130,5 +124,138 @@ BEGIN
         AND (@room_id IS NULL OR RA.room_id = @room_id)
         AND (@status IS NULL OR A.status = @status)
     ORDER BY RA.assignment_start;
+END
+GO
+
+
+
+create PROCEDURE DeleteAppointment
+    @appointment_id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Check if appointment exists
+    IF NOT EXISTS (SELECT 1 FROM Appointments WHERE appointment_id = @appointment_id)
+    BEGIN
+        RAISERROR('Appointment not found.', 16, 1);
+        RETURN;
+    END
+
+    -- Delete related room assignments first (if any)
+    DELETE FROM Room_Assignments
+    WHERE appointment_id = @appointment_id;
+
+    -- Delete the appointment
+    DELETE FROM Appointments
+    WHERE appointment_id = @appointment_id;
+END
+GO
+
+
+
+
+
+
+
+Create PROCEDURE UpdateAppointment
+    @appointment_id INT,
+    @branch_id INT,
+    @patient_cnic VARCHAR(13),
+    @doctor_cnic VARCHAR(13),
+    @status VARCHAR(20),
+    @room_id INT,
+    @assignment_start DATETIME,
+    @assignment_end DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @patient_id INT, @doctor_id INT;
+
+    -- Check if appointment exists
+    IF NOT EXISTS (SELECT 1 FROM Appointments WHERE appointment_id = @appointment_id)
+    BEGIN
+        RAISERROR('Appointment not found.', 16, 1);
+        RETURN;
+    END
+
+    -- Validate assignment times
+    IF @assignment_start >= @assignment_end
+    BEGIN
+        RAISERROR('Assignment start time must be before end time.', 16, 1);
+        RETURN;
+    END
+
+    -- Validate patient
+    SELECT @patient_id = patient_id
+    FROM Patients
+    WHERE cnic = @patient_cnic AND deleted = 0;
+
+    IF @patient_id IS NULL
+    BEGIN
+        RAISERROR('Invalid patient CNIC', 16, 1);
+        RETURN;
+    END
+
+    -- Validate doctor in the given branch
+    SELECT @doctor_id = doctor_id
+    FROM Doctors
+    WHERE cnic = @doctor_cnic AND branch_id = @branch_id AND deleted = 0;
+
+    IF @doctor_id IS NULL
+    BEGIN
+        RAISERROR('Invalid doctor CNIC for this branch', 16, 1);
+        RETURN;
+    END
+
+    -- Validate room in the branch
+    IF NOT EXISTS (
+        SELECT 1
+        FROM Rooms
+        WHERE room_id = @room_id AND branch_id = @branch_id AND deleted = 0
+    )
+    BEGIN
+        RAISERROR('Invalid or deleted room for this branch.', 16, 1);
+        RETURN;
+    END
+
+    -- Check room conflict for Scheduled appointments
+    IF @status = 'Scheduled'
+    BEGIN
+        IF EXISTS (
+            SELECT 1
+            FROM Room_Assignments RA
+            JOIN Appointments A ON RA.appointment_id = A.appointment_id
+            WHERE RA.room_id = @room_id
+              AND A.status = 'Scheduled'
+              AND RA.appointment_id != @appointment_id
+              AND (
+                    (@assignment_start >= RA.assignment_start AND @assignment_start < RA.assignment_end)
+                 OR (@assignment_end > RA.assignment_start AND @assignment_end <= RA.assignment_end)
+                 OR (RA.assignment_start >= @assignment_start AND RA.assignment_start < @assignment_end)
+                 )
+        )
+        BEGIN
+            RAISERROR('Room already assigned during this time in this branch (Scheduled only).', 16, 1);
+            RETURN;
+        END
+    END
+
+    -- Update appointment
+    UPDATE Appointments
+    SET
+        patient_id = @patient_id,
+        doctor_id = @doctor_id,
+        status = @status
+    WHERE appointment_id = @appointment_id;
+
+    -- Update room assignment
+    UPDATE Room_Assignments
+    SET
+        room_id = @room_id,
+        assignment_start = @assignment_start,
+        assignment_end = @assignment_end
+    WHERE appointment_id = @appointment_id;
 END
 GO

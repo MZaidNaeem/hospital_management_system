@@ -73,8 +73,8 @@
         <property name="spacing">
          <number>50</number>
         </property>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="admin_mange_admins">
+        <item row="1" column="2">
+         <widget class="QPushButton" name="admin_manage_appointments">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -82,7 +82,46 @@
            </size>
           </property>
           <property name="text">
-           <string>Manage Admins</string>
+           <string>Appointments</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="admin_manage_doctors">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Mange Doctors</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="admin_manage_rooms">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Manage Rooms</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="admin_manage_branches">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Manage Branches</string>
           </property>
          </widget>
         </item>
@@ -99,8 +138,8 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="admin_manage_rooms">
+        <item row="0" column="1">
+         <widget class="QPushButton" name="admin_mange_admins">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -108,7 +147,7 @@
            </size>
           </property>
           <property name="text">
-           <string>Manage Rooms</string>
+           <string>Manage Admins</string>
           </property>
          </widget>
         </item>
@@ -128,58 +167,6 @@
           </property>
           <property name="default">
            <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="admin_manage_doctors">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Mange Doctors</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QPushButton" name="admin_manage_assignments">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Assignments</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="admin_manage_appointments">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Appointments</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="admin_manage_branches">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Manage Branches</string>
           </property>
          </widget>
         </item>

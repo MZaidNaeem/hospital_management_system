@@ -6,7 +6,6 @@ from controllers.admin.admin_manage_doctor_controller import AdminManageDoctorCo
 from controllers.admin.admin_manage_rooms_controller import AdminManageRoomsController
 from controllers.admin.admin_manage_branch_controller import AdminManageBranchController
 from controllers.admin.admin_manage_appointment_controller import AdminManageAppointmentController
-from controllers.admin.admin_manage_assignment_controller import AdminManageAssignmentController
 from controllers.admin.admin_profile_controller import AdminProfileController
 from controllers.admin.admin_mange_controller import AdminManageAdminsController
 from global_file import global_value   
@@ -26,7 +25,6 @@ class AdminMainInterfaceController(QWidget):
         self.ui.admin_manage_rooms.clicked.connect(self.open_manage_rooms)
         self.ui.admin_manage_branches.clicked.connect(self.open_manage_branches)
         self.ui.admin_manage_appointments.clicked.connect(self.open_manage_appointments)
-        self.ui.admin_manage_assignments.clicked.connect(self.open_manage_assignments)
         self.ui.admin_my_profile.clicked.connect(self.open_profile)
         self.ui.admin_mange_admins.clicked.connect(self.open_manage_admins)
         print
@@ -52,9 +50,6 @@ class AdminMainInterfaceController(QWidget):
         self.window = AdminManageAppointmentController()
         self.window.show()
 
-    def open_manage_assignments(self):
-        self.window = AdminManageAssignmentController()
-        self.window.show()
 
     def open_profile(self):
         self.window = AdminProfileController()
