@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_branch_manageXUcpEU.ui'
+## Form generated from reading UI file 'admin_branch_manageOBjqfR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,15 +15,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QTableView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QTableView, QVBoxLayout,
+    QWidget)
 
 class Ui_Frame(object):
     def setupUi(self, Frame):
         if not Frame.objectName():
             Frame.setObjectName(u"Frame")
-        Frame.resize(1100, 600)
+        Frame.resize(800, 400)
         self.gridLayout = QGridLayout(Frame)
         self.gridLayout.setObjectName(u"gridLayout")
         self.widget = QWidget(Frame)
@@ -61,7 +62,7 @@ class Ui_Frame(object):
 
         self.admin_branch_name_label = QLabel(self.widget_2)
         self.admin_branch_name_label.setObjectName(u"admin_branch_name_label")
-        self.admin_branch_name_label.setMaximumSize(QSize(16777215, 50))
+        self.admin_branch_name_label.setMaximumSize(QSize(16777215, 20))
 
         self.verticalLayout_2.addWidget(self.admin_branch_name_label)
 
@@ -72,7 +73,7 @@ class Ui_Frame(object):
 
         self.admin_contact_number_label = QLabel(self.widget_2)
         self.admin_contact_number_label.setObjectName(u"admin_contact_number_label")
-        self.admin_contact_number_label.setMaximumSize(QSize(16777215, 50))
+        self.admin_contact_number_label.setMaximumSize(QSize(16777215, 20))
 
         self.verticalLayout_2.addWidget(self.admin_contact_number_label)
 
@@ -81,9 +82,22 @@ class Ui_Frame(object):
 
         self.verticalLayout_2.addWidget(self.admin_contact_number_input)
 
+        self.label = QLabel(self.widget_2)
+        self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_2.addWidget(self.label)
+
+        self.comboBox = QComboBox(self.widget_2)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.verticalLayout_2.addWidget(self.comboBox)
+
         self.admin_message_label = QLabel(self.widget_2)
         self.admin_message_label.setObjectName(u"admin_message_label")
-        self.admin_message_label.setMaximumSize(QSize(16777215, 40))
+        self.admin_message_label.setMaximumSize(QSize(16777215, 20))
 
         self.verticalLayout_2.addWidget(self.admin_message_label)
 
@@ -103,11 +117,6 @@ class Ui_Frame(object):
         self.admin_update_button.setObjectName(u"admin_update_button")
 
         self.horizontalLayout_5.addWidget(self.admin_update_button)
-
-        self.admin_delete_button = QPushButton(self.widget_4)
-        self.admin_delete_button.setObjectName(u"admin_delete_button")
-
-        self.horizontalLayout_5.addWidget(self.admin_delete_button)
 
 
         self.horizontalLayout_6.addLayout(self.horizontalLayout_5)
@@ -150,9 +159,12 @@ class Ui_Frame(object):
         self.title_label.setText(QCoreApplication.translate("Frame", u"MANAGE BRANCH", None))
         self.admin_branch_name_label.setText(QCoreApplication.translate("Frame", u"BRANCH NAME", None))
         self.admin_contact_number_label.setText(QCoreApplication.translate("Frame", u"CONTACT NUMBER", None))
+        self.label.setText(QCoreApplication.translate("Frame", u"TextLabel", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("Frame", u"NO", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("Frame", u"YES", None))
+
         self.admin_message_label.setText("")
         self.admin_add_button.setText(QCoreApplication.translate("Frame", u"ADD BRANCH", None))
         self.admin_update_button.setText(QCoreApplication.translate("Frame", u"UPDATE BRANCH", None))
-        self.admin_delete_button.setText(QCoreApplication.translate("Frame", u"DELETE BRANCH", None))
     # retranslateUi
 

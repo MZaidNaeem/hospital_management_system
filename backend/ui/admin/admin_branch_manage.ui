@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>600</height>
+    <width>800</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,7 +64,7 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>50</height>
+               <height>20</height>
               </size>
              </property>
              <property name="text">
@@ -80,7 +80,7 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>50</height>
+               <height>20</height>
               </size>
              </property>
              <property name="text">
@@ -92,11 +92,38 @@
             <widget class="QLineEdit" name="admin_contact_number_input"/>
            </item>
            <item>
+            <widget class="QLabel" name="label">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox">
+             <item>
+              <property name="text">
+               <string>NO</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>YES</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="admin_message_label">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>40</height>
+               <height>20</height>
               </size>
              </property>
              <property name="text">
@@ -126,13 +153,6 @@
                  <widget class="QPushButton" name="admin_update_button">
                   <property name="text">
                    <string>UPDATE BRANCH</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="admin_delete_button">
-                  <property name="text">
-                   <string>DELETE BRANCH</string>
                   </property>
                  </widget>
                 </item>
