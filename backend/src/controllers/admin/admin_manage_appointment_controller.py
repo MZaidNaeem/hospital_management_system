@@ -155,6 +155,8 @@ class AdminManageAppointmentController(QWidget):
             """, (branch_id, patient_cnic, doctor_cnic, status, room_id, start_dt, end_dt))
             conn.commit()
             self.ui.admin_message_label.setText("Appointment added successfully!")
+            self.clear_appointment_fields()
+
 
         except Exception as e:
             self.ui.admin_message_label.setText(global_value.throw_exception(e))
@@ -167,7 +169,6 @@ class AdminManageAppointmentController(QWidget):
                 pass
 
         self.load_appointments()
-        self.clear_appointment_fields()
 
 
     def delete_appointment(self):
