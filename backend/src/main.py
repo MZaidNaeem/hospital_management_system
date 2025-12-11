@@ -5,7 +5,6 @@ import sys
 from interfaces.login_ui import Ui_Frame
 from controllers.admin.admin_main_interface_controller import AdminMainInterfaceController
 from controllers.doctor.doctor_main_interface_controller import DoctorMainInterfaceController
-from controllers.patient.patient_main_interface_controller import PatientMainInterfaceController
 from global_file import global_value
 
 
@@ -44,9 +43,6 @@ class LoginWindow(QWidget):
                 elif role == "DOCTOR":
                     self.open_doctor_main_interface()
 
-                elif role == "PATIENT":
-                    self.open_patient_main_interface()
-
                 self.ui.cnic_input.setText("")
                 self.ui.password_input.setText("")
 
@@ -72,9 +68,7 @@ class LoginWindow(QWidget):
         global_value.current_user_window = DoctorMainInterfaceController()
         global_value.current_user_window.show()
     
-    def open_patient_main_interface(self):
-        global_value.current_user_window = PatientMainInterfaceController()
-        global_value.current_user_window.show()
+
 
 
 def main():

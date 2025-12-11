@@ -63,6 +63,12 @@
         </item>
         <item>
          <widget class="QComboBox" name="login_as_input">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>23</height>
+           </size>
+          </property>
           <item>
            <property name="text">
             <string>ADMIN</string>
@@ -73,15 +79,16 @@
             <string>DOCTOR</string>
            </property>
           </item>
-          <item>
-           <property name="text">
-            <string>PATIENT</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="error_label">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>23</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -89,6 +96,15 @@
         </item>
         <item>
          <widget class="QPushButton" name="login_button">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>LOGIN</string>
           </property>

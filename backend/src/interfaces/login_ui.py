@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'loginUQWPpR.ui'
+## Form generated from reading UI file 'loginPbzimo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -47,7 +47,6 @@ class Ui_Frame(object):
         self.passoword_lable = QLabel(self.widget)
         self.passoword_lable.setObjectName(u"passoword_lable")
 
-
         self.verticalLayout_5.addWidget(self.passoword_lable)
 
         self.password_input = QLineEdit(self.widget)
@@ -63,18 +62,21 @@ class Ui_Frame(object):
         self.login_as_input = QComboBox(self.widget)
         self.login_as_input.addItem("")
         self.login_as_input.addItem("")
-        self.login_as_input.addItem("")
         self.login_as_input.setObjectName(u"login_as_input")
+        self.login_as_input.setMaximumSize(QSize(16777215, 23))
 
         self.verticalLayout_5.addWidget(self.login_as_input)
 
         self.error_label = QLabel(self.widget)
         self.error_label.setObjectName(u"error_label")
+        self.error_label.setMaximumSize(QSize(16777215, 23))
 
         self.verticalLayout_5.addWidget(self.error_label)
 
         self.login_button = QPushButton(self.widget)
         self.login_button.setObjectName(u"login_button")
+        self.login_button.setMinimumSize(QSize(0, 0))
+        self.login_button.setStyleSheet(u"")
 
         self.verticalLayout_5.addWidget(self.login_button)
 
@@ -106,7 +108,6 @@ class Ui_Frame(object):
         self.login_as_lable.setText(QCoreApplication.translate("Frame", u"LOGIN AS", None))
         self.login_as_input.setItemText(0, QCoreApplication.translate("Frame", u"ADMIN", None))
         self.login_as_input.setItemText(1, QCoreApplication.translate("Frame", u"DOCTOR", None))
-        self.login_as_input.setItemText(2, QCoreApplication.translate("Frame", u"PATIENT", None))
 
         self.error_label.setText("")
         self.login_button.setText(QCoreApplication.translate("Frame", u"LOGIN", None))
