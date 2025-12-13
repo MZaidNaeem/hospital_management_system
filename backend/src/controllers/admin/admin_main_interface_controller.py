@@ -8,7 +8,7 @@ from controllers.admin.admin_manage_branch_controller import AdminManageBranchCo
 from controllers.admin.admin_manage_appointment_controller import AdminManageAppointmentController
 from controllers.admin.admin_profile_controller import AdminProfileController
 from controllers.admin.admin_mange_controller import AdminManageAdminsController
-from controllers.admin.admin_report_controller import AdminrReportController
+from controllers.admin.admin_report_controller import AdminReportController
 from global_file import global_value   
 
 
@@ -62,5 +62,5 @@ class AdminMainInterfaceController(QWidget):
 
 
     def open_report_admins(self):
-        self.window = AdminrReportController()
+        self.window = AdminReportController()
         self.window.show()

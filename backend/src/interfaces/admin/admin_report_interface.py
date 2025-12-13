@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_report_interfacerfJoWa.ui'
+## Form generated from reading UI file 'admin_report_interfacePBWVTS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -39,7 +39,6 @@ class Ui_Frame(object):
         self.horizontalLayout.addWidget(self.comboBox)
 
         self.comboBox_2 = QComboBox(Frame)
-        self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
@@ -83,10 +82,9 @@ class Ui_Frame(object):
         self.comboBox.setItemText(2, QCoreApplication.translate("Frame", u"DOCTOR", None))
         self.comboBox.setItemText(3, QCoreApplication.translate("Frame", u"PATIENT", None))
 
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("Frame", u"ALL", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("Frame", u"MONTHLY", None))
-        self.comboBox_2.setItemText(2, QCoreApplication.translate("Frame", u"WEEKLY", None))
-        self.comboBox_2.setItemText(3, QCoreApplication.translate("Frame", u"DAILY", None))
+        self.comboBox_2.setItemText(0, QCoreApplication.translate("Frame", u"DAILY", None))
+        self.comboBox_2.setItemText(1, QCoreApplication.translate("Frame", u"WEEKLY", None))
+        self.comboBox_2.setItemText(2, QCoreApplication.translate("Frame", u"MONTHLY", None))
 
         self.xlxs_button.setText(QCoreApplication.translate("Frame", u"EXPORT TO XLSX", None))
         self.label.setText(QCoreApplication.translate("Frame", u"REPORTS", None))

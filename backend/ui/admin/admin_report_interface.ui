@@ -50,12 +50,7 @@
       <widget class="QComboBox" name="comboBox_2">
        <item>
         <property name="text">
-         <string>ALL</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>MONTHLY</string>
+         <string>DAILY</string>
         </property>
        </item>
        <item>
@@ -65,7 +60,7 @@
        </item>
        <item>
         <property name="text">
-         <string>DAILY</string>
+         <string>MONTHLY</string>
         </property>
        </item>
       </widget>
