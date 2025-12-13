@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'admin_main_interfacelTBFLD.ui'
+## Form generated from reading UI file 'admin_main_interfacepIsKtg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -96,6 +96,11 @@ class Ui_Frame(object):
 
         self.verticalLayout.addWidget(self.admin_manage_appointments)
 
+        self.report_button = QPushButton(self.widget)
+        self.report_button.setObjectName(u"report_button")
+
+        self.verticalLayout.addWidget(self.report_button)
+
 
         self.gridLayout_3.addLayout(self.verticalLayout, 1, 0, 1, 1)
 
@@ -121,5 +126,6 @@ class Ui_Frame(object):
         self.admin_manage_branches.setText(QCoreApplication.translate("Frame", u"Manage Branches", None))
         self.admin_manage_rooms.setText(QCoreApplication.translate("Frame", u"Manage Rooms", None))
         self.admin_manage_appointments.setText(QCoreApplication.translate("Frame", u"Appointments", None))
+        self.report_button.setText(QCoreApplication.translate("Frame", u"Reports", None))
     # retranslateUi
 
