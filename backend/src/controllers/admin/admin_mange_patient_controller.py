@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QWidget, QMessageBox
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from interfaces.admin.admin_mange_patient import Ui_Frame
 from connection import get_connection
-
+import re
 
 class AdminManagePatientController(QWidget):
     def __init__(self):
@@ -72,6 +72,50 @@ class AdminManagePatientController(QWidget):
 
         deleted = 1 if self.ui.patient_delete_dropbox.currentText() == "YES" else 0
 
+
+        # -------------------- Validations --------------------
+        name_pattern = r"^[A-Za-z ]+$"
+        if not re.match(name_pattern, fname):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("First name can contain only letters and spaces.")
+            return
+        if not re.match(name_pattern, lname):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("Last name can contain only letters and spaces.")
+            return
+
+        email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        if not re.match(email_pattern, email):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("Email must be valid (e.g., user@example.com).")
+            return
+        
+        cnic_pattern = r"^\d{13}$"
+        if not re.match(cnic_pattern, cnic):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("CNIC must be exactly 13 digits.")
+            return
+
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(password_pattern, password):
+            self.ui.patient_message_label.setText("Password must be at least 8 characters long!")
+            return
+        
+        contact_pattern = r"^\+?\d{1,3}[\s-]?\d{10}$"
+        if not re.match(contact_pattern, contact):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText(
+                "Contact Correct Format +923001234567, +92 3001234567, 03001234567"
+            )
+            return
+        
+
+        if not fname or not lname or not email or not cnic or not password or not contact:
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("All fields are required.")
+            return
+
         conn = get_connection()
         cursor = conn.cursor()
 
@@ -121,6 +165,48 @@ class AdminManagePatientController(QWidget):
 
         
         deleted = 1 if self.ui.patient_delete_dropbox.currentText() == "YES" else 0
+
+        # -------------------- Validations --------------------
+        name_pattern = r"^[A-Za-z ]+$"
+        if not re.match(name_pattern, fname):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("First name can contain only letters and spaces.")
+            return
+        if not re.match(name_pattern, lname):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("Last name can contain only letters and spaces.")
+            return
+
+        email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        if not re.match(email_pattern, email):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("Email must be valid (e.g., user@example.com).")
+            return
+        
+        cnic_pattern = r"^\d{13}$"
+        if not re.match(cnic_pattern, cnic):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("CNIC must be exactly 13 digits.")
+            return
+
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(password_pattern, password):
+            self.ui.patient_message_label.setText("Password must be at least 8 characters long!")
+            return
+
+        contact_pattern = r"^\+?\d{1,3}[\s-]?\d{10}$"
+        if not re.match(contact_pattern, contact):
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText(
+                "Contact Correct Format +923001234567, +92 3001234567, 03001234567"
+            )
+            return
+
+        if not fname or not lname or not email or not cnic or not password or not contact:
+            self.ui.patient_message_label.setStyleSheet("color: red;")
+            self.ui.patient_message_label.setText("All fields are required.")
+            return
 
         conn = get_connection()
         cursor = conn.cursor()

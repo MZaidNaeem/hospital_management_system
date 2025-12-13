@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from connection import get_connection
 from interfaces.admin.admin_manage_doctor import Ui_Frame
+import re
 
 class AdminManageDoctorController(QWidget):
     def __init__(self):
@@ -103,10 +104,54 @@ class AdminManageDoctorController(QWidget):
         branch_name = self.ui.doctor_branch_dropbox.currentText()
         deleted = 1 if self.ui.doctor_delete_dropbox.currentText() == "YES" else 0
 
+
+        name_pattern = r"^[A-Za-z ]+$"
+        if not re.match(name_pattern, fname):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("First name can contain only letters and spaces.")
+            return
+        if not re.match(name_pattern, lname):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Last name can contain only letters and spaces.")
+            return
+
+        email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+        if not re.match(email_pattern, email):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Email must be a valid Gmail (e.g., abc@gmail.com).")
+            return
+        
+        cnic_pattern = r"^\d{13}$"
+        if not re.match(cnic_pattern, cnic):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("CNIC must be exactly 13 digits.")
+            return
+        
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(password_pattern, password):
+            self.ui.doctor_message_label.setText("Password must be at least 8 characters long!")
+            return
+
+        if not re.match(name_pattern, specialty):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Specialty can contain only letters and spaces.")
+            return
+        
+        contact_pattern = r"^\+?\d{1,3}[\s-]?\d{10}$"
+        if not re.match(contact_pattern, contact):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Contact Correct Format +923001234567, +92 3001234567, 03001234567")
+            return
+        
         if not all([fname, lname, email, cnic, password, specialty, contact, branch_name]):
             self.ui.doctor_message_label.setStyleSheet("color: red;")
             self.ui.doctor_message_label.setText("All fields are required.")
             return
+        # -------------------------------------------------------------
+
+
 
         branch_id = self.branch_dict[branch_name][1]
 
@@ -152,10 +197,53 @@ class AdminManageDoctorController(QWidget):
         branch_name = self.ui.doctor_branch_dropbox.currentText()
         deleted = 1 if self.ui.doctor_delete_dropbox.currentText() == "YES" else 0
 
+        # -------------------- INLINE VALIDATIONS --------------------
+
+        name_pattern = r"^[A-Za-z ]+$"
+        if not re.match(name_pattern, fname):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("First name can contain only letters and spaces.")
+            return
+        if not re.match(name_pattern, lname):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Last name can contain only letters and spaces.")
+            return
+
+        email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+        if not re.match(email_pattern, email):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Email must be a valid Gmail (e.g., abc@gmail.com).")
+            return
+        
+        cnic_pattern = r"^\d{13}$"
+        if not re.match(cnic_pattern, cnic):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("CNIC must be exactly 13 digits.")
+            return
+        
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(password_pattern, password):
+            self.ui.doctor_message_label.setText("Password must be at least 8 characters long!")
+            return
+
+        if not re.match(name_pattern, specialty):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Specialty can contain only letters and spaces.")
+            return
+
+        contact_pattern =r"^\+?\d{1,3}[\s-]?\d{10}$"
+        if not re.match(contact_pattern, contact):
+            self.ui.doctor_message_label.setStyleSheet("color: red;")
+            self.ui.doctor_message_label.setText("Contact Correct Format +923001234567, +92 3001234567, 03001234567")
+            return
+        
         if not all([fname, lname, email, cnic, password, specialty, contact, branch_name]):
             self.ui.doctor_message_label.setStyleSheet("color: red;")
             self.ui.doctor_message_label.setText("All fields are required.")
             return
+        # -------------------------------------------------------------
 
         branch_id = self.branch_dict[branch_name][1]
 
@@ -195,5 +283,5 @@ class AdminManageDoctorController(QWidget):
         self.ui.doctor_speciality_input.clear()
         self.ui.doctor_contact_input.clear()
         self.ui.doctor_branch_dropbox.setCurrentIndex(0)
-        self.ui.doctor_delete_dropbox.setCurrentIndex(1)  # Default NO
+        self.ui.doctor_delete_dropbox.setCurrentIndex(1)  
         self.ui.doctor_message_label.setText("")

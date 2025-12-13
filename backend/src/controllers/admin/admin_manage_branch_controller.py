@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from interfaces.admin.admin_manage_branch import Ui_Frame
 from connection import get_connection
-
+import re
 class AdminManageBranchController(QWidget):
     def __init__(self):
         super().__init__()
@@ -84,9 +84,22 @@ class AdminManageBranchController(QWidget):
         contact = self.ui.admin_contact_number_input.text().strip()
         deleted = 1 if self.ui.comboBox.currentText() == "YES" else 0
 
-        if name == "":
+        # -------------------- INLINE VALIDATIONS --------------------
+        name_pattern = r"^[A-Za-z ]+$"
+        contact_pattern = r"^\+?\d{1,3}[\s-]?\d{10}$"
+
+        if not name:
             self.ui.admin_message_label.setText("Branch name required!")
             return
+        if not re.match(name_pattern, name):
+            self.ui.admin_message_label.setText("Branch name can contain only letters and spaces.")
+            return
+        if contact and not re.match(contact_pattern, contact):
+            self.ui.admin_message_label.setText("Contact number must be valid (e.g., +923001234567, +92 3001234567 or 03001234567).")
+            return
+        # -------------------------------------------------------------
+
+
 
         try:
             conn = get_connection()
@@ -119,6 +132,21 @@ class AdminManageBranchController(QWidget):
         name = self.ui.admin_branch_name_input.text().strip()
         contact = self.ui.admin_contact_number_input.text().strip()
         deleted = 1 if self.ui.comboBox.currentText() == "YES" else 0
+
+        # -------------------- INLINE VALIDATIONS --------------------
+        name_pattern = r"^[A-Za-z ]+$"
+        contact_pattern = r"^\+?\d{1,3}[\s-]?\d{10}$"
+
+        if not name:
+            self.ui.admin_message_label.setText("Branch name required!")
+            return
+        if not re.match(name_pattern, name):
+            self.ui.admin_message_label.setText("Branch name can contain only letters and spaces.")
+            return
+        if contact and not re.match(contact_pattern, contact):
+            self.ui.admin_message_label.setText("Contact number must be valid (e.g., +923001234567, +92 3001234567 or 03001234567).")
+            return
+        # ----
 
         try:
             conn = get_connection()

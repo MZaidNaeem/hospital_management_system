@@ -4,6 +4,7 @@ from PySide6.QtCore import QDateTime
 from interfaces.admin.admin_manage_appointment import Ui_Frame
 from connection import get_connection
 from global_file import global_value
+import re
 
 
 class AdminManageAppointmentController(QWidget):
@@ -122,18 +123,21 @@ class AdminManageAppointmentController(QWidget):
         start_dt = self.ui.ap_assignment_start_input.dateTime().toPython()
         end_dt = self.ui.ap_assignment_end_input.dateTime().toPython()
 
-        if not patient_cnic:
-            self.ui.admin_message_label.setText("Patient CNIC is required!")
+        cnic_pattern = r"^\d{13}$"
+
+        if not re.match(cnic_pattern, patient_cnic):
+            self.ui.admin_message_label.setText("Patient CNIC must be exactly 13 digits!")
             return
-        if not doctor_cnic:
-            self.ui.admin_message_label.setText("Doctor CNIC is required!")
+
+        if not re.match(cnic_pattern, doctor_cnic):
+            self.ui.admin_message_label.setText("Doctor CNIC must be exactly 13 digits!")
             return
+
         if not room_id_text.isdigit():
-            self.ui.admin_message_label.setText("Room ID must be a number!")
+            self.ui.admin_message_label.setText("Room ID must be numeric!")
             return
-        if not branch_id:
-            self.ui.admin_message_label.setText("Select a branch!")
-            return
+
+
         if start_dt >= end_dt:
             self.ui.admin_message_label.setText("End time must be after start time!")
             return
@@ -215,9 +219,24 @@ class AdminManageAppointmentController(QWidget):
             assignment_start = self.ui.ap_assignment_start_input.dateTime().toPython()
             assignment_end = self.ui.ap_assignment_end_input.dateTime().toPython()
 
-            if not room_id_text.isdigit():
-                self.ui.admin_message_label.setText("Room ID must be a number")
+            cnic_pattern = r"^\d{13}$"
+
+            if not re.match(cnic_pattern, patient_cnic):
+                self.ui.admin_message_label.setText("Patient CNIC must be 13 digits!")
                 return
+
+            if not re.match(cnic_pattern, doctor_cnic):
+                self.ui.admin_message_label.setText("Doctor CNIC must be 13 digits!")
+                return
+
+            if not room_id_text.isdigit():
+                self.ui.admin_message_label.setText("Room ID must be numeric!")
+                return
+            
+            if assignment_start >= assignment_end:
+                self.ui.admin_message_label.setText("End time must be after start time!")
+                return
+
 
             room_id = int(room_id_text)
 

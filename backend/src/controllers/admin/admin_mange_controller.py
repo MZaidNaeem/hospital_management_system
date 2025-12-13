@@ -3,6 +3,7 @@ from PySide6.QtGui import QStandardItemModel, QStandardItem
 from connection import get_connection
 from interfaces.admin.admin_mange import Ui_Frame
 from global_file import global_value
+import re
 
 class AdminManageAdminsController(QWidget):
     def __init__(self):
@@ -86,7 +87,6 @@ class AdminManageAdminsController(QWidget):
         else:
             self.ui.admin_deleted_dropbox.setCurrentText("NO")
 
-        print(self.current_row)
 
 
 
@@ -103,10 +103,41 @@ class AdminManageAdminsController(QWidget):
         deleted_value = self.ui.admin_deleted_dropbox.currentText()
         deleted = 1 if deleted_value == "YES" else 0
 
+    # ----- Validation -----
+        name_pattern = r"^[A-Za-z ]+$"
+        if not re.match(name_pattern, fname):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("First name can contain only letters and spaces.")
+            return
+
+        if not re.match(name_pattern, lname):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("Last name can contain only letters and spaces.")
+            return
+
+        email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        if not re.match(email_pattern, email):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("Email must be valid (e.g., user@example.com).")
+            return
+        
+        cnic_pattern = r"^\d{13}$"  # exactly 13 digits
+        if not re.match(cnic_pattern, cnic):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("CNIC must be exactly 13 digits.")
+            return
+        
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(password_pattern, password):
+            self.ui.admin_message_label.setText("Password must be at least 8 characters long!")
+            return
+
         if not fname or not lname or not email or not cnic or not password:
             self.ui.admin_message_label.setStyleSheet("color: red;")
             self.ui.admin_message_label.setText("All fields are required.")
             return
+
 
         try:
             conn = get_connection()
@@ -114,8 +145,7 @@ class AdminManageAdminsController(QWidget):
 
             cursor.execute("""
                 EXEC InsertAdmin ?, ?, ?, ?, ?, ?
-            """, (fname, lname, email, cnic, password, deleted))
-            print("done")
+            """, (fname, lname, cnic,email, password, deleted))
             conn.commit()
             cursor.close()
             conn.close()
@@ -138,7 +168,7 @@ class AdminManageAdminsController(QWidget):
 
         except Exception as e:
             self.ui.admin_message_label.setStyleSheet("color: red;")
-            self.ui.admin_message_label.setText(f"Cnic or Email duplicated")
+            self.ui.admin_message_label.setText(f"Cnic or Email Duplicated")
 
 
     def update_admin(self):
@@ -157,7 +187,37 @@ class AdminManageAdminsController(QWidget):
         deleted_value = self.ui.admin_deleted_dropbox.currentText()
         deleted = 1 if deleted_value == "YES" else 0
 
-        # Validation
+    # ----- Validation -----
+        name_pattern = r"^[A-Za-z ]+$"
+        if not re.match(name_pattern, fname):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("First name can contain only letters and spaces.")
+            return
+
+        if not re.match(name_pattern, lname):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("Last name can contain only letters and spaces.")
+            return
+
+        email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        if not re.match(email_pattern, email):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("Email must be valid (e.g., user@example.com).")
+            return
+        
+        cnic_pattern = r"^\d{13}$"
+        if not re.match(cnic_pattern, cnic):
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("CNIC must be exactly 13 digits.")
+            return
+
+        
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(password_pattern, password):
+            self.ui.admin_message_label.setText("Password must be at least 8 characters long!")
+            return
+
         if not fname or not lname or not email or not cnic or not password:
             self.ui.admin_message_label.setStyleSheet("color: red;")
             self.ui.admin_message_label.setText("All fields are required.")
@@ -193,9 +253,10 @@ class AdminManageAdminsController(QWidget):
             self.ui.admin_deleted_dropbox.setCurrentText("NO")
 
         except Exception as e:
-            print(e)
             self.ui.admin_message_label.setStyleSheet("color: red;")
-            self.ui.admin_message_label.setText("Email or CNIC already exists!")
+            self.ui.admin_message_label.setText(f"Cnic or Email Duplicated")
+
+
 
             
 

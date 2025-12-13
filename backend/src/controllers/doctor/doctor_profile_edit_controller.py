@@ -3,6 +3,7 @@ from interfaces.doctor.doctor_profile import Ui_Frame
 from global_file import global_value
 from connection import get_connection
 from PySide6.QtWidgets import QMessageBox
+import re
 
 
 class DoctorProfileController(QWidget):
@@ -46,6 +47,50 @@ class DoctorProfileController(QWidget):
         password = self.ui.password_input.text()
         specialty = self.ui.speciality_input.toPlainText()
         contact_number = self.ui.contact_number_input.toPlainText()
+
+        name_pattern = r"^[A-Za-z ]+$"
+        email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        cnic_pattern = r"^\d{13}$"
+        contact_pattern = r"^\+?\d{1,3}[\s-]?\d{10}$"
+        specialty_pattern = r"^[A-Za-z ]+$"
+        password_pattern = r"^.{8,}$"
+
+        if not re.match(name_pattern, first_name):
+            self.ui.admin_message_label.setText("First name must contain only letters and spaces!")
+            return
+
+        if not re.match(name_pattern, last_name):
+            self.ui.admin_message_label.setText("Last name must contain only letters and spaces!")
+            return
+
+        if not re.match(email_pattern, email):
+            self.ui.admin_message_label.setText("Enter a valid email address!")
+            return
+
+        if not re.match(cnic_pattern, cnic):
+            self.ui.admin_message_label.setText("CNIC must be exactly 13 digits!")
+            return
+
+
+        if not re.match(password_pattern, password):
+            self.ui.admin_message_label.setText("Password must be at least 8 characters long!")
+            return
+
+        if not re.match(specialty_pattern, specialty):
+            self.ui.admin_message_label.setText("Specialty can contain only letters and spaces!")
+            return
+
+        if not re.match(contact_pattern, contact_number):
+            self.ui.admin_message_label.setText(
+                "Contact must be valid (e.g. +92 3001234567 +923001234567 or 03001234567)"
+            )
+            return
+        
+        if not first_name or not last_name or not email or not cnic or not password:
+            self.ui.admin_message_label.setStyleSheet("color: red;")
+            self.ui.admin_message_label.setText("All fields are required.")
+            return
+
 
         try:
             conn = get_connection()

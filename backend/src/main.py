@@ -45,10 +45,12 @@ class LoginWindow(QWidget):
 
                 self.ui.cnic_input.setText("")
                 self.ui.password_input.setText("")
+                self.ui.error_label.setText("")
 
             
             else:
-                self.ui.error_label.setText("Invalid CNIC, password, or role!")
+                self.ui.error_label.setStyleSheet("color: red;")
+                self.ui.error_label.setText("Invalid CNIC, Password, or Role!")
             
         finally:
             cursor.close()

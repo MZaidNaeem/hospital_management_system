@@ -3,6 +3,7 @@ from PySide6.QtGui import QStandardItemModel, QStandardItem
 from interfaces.admin.admin_manage_rooms import Ui_Frame
 from connection import get_connection
 from global_file import global_value
+import re
 
 class AdminManageRoomsController(QWidget):
     def __init__(self):
@@ -124,7 +125,7 @@ class AdminManageRoomsController(QWidget):
             cursor = conn.cursor()
             cursor.execute("EXEC UpdateRoom ?, ?, ?", self.selected_room_id, branch_id, deleted)
             conn.commit()
-            self.ui.admin_message_label.setText("Room updated successfully with previous ID")
+            self.ui.admin_message_label.setText("Room updated successfully except room id")
         except Exception as e:
             self.ui.admin_message_label.setText(f"Error during updation")
         finally:
