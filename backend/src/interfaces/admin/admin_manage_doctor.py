@@ -246,7 +246,7 @@ class Ui_Frame(object):
     # setupUi
 
     def retranslateUi(self, Frame):
-        Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
+        Frame.setWindowTitle(QCoreApplication.translate("Login", u"Manage Doctors - Hospital Management System", None))
         self.title_doctors.setText(QCoreApplication.translate("Frame", u"MANAGE DOCTORS", None))
         self.doctor_first_name_label.setText(QCoreApplication.translate("Frame", u"FIRST NAME", None))
         self.doctor_last_name_label.setText(QCoreApplication.translate("Frame", u"SECOND NAME", None))

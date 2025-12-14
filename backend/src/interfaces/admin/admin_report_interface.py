@@ -76,7 +76,8 @@ class Ui_Frame(object):
     # setupUi
 
     def retranslateUi(self, Frame):
-        Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
+        Frame.setWindowTitle(QCoreApplication.translate("Login", u"Reports - Hospital Management System", None))
+
         self.comboBox.setItemText(0, QCoreApplication.translate("Frame", u"BRANCH", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("Frame", u"ROOM", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("Frame", u"DOCTOR", None))

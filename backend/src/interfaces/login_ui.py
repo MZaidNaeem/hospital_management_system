@@ -100,7 +100,7 @@ class Ui_Frame(object):
             self.password_input.setEchoMode(QLineEdit.Password)  
 
     def retranslateUi(self, Frame):
-        Frame.setWindowTitle(QCoreApplication.translate("Frame", u"Frame", None))
+        Frame.setWindowTitle(QCoreApplication.translate("Login", u"Login - Hospital Management System", None))
         self.cnic_lable.setText(QCoreApplication.translate("Frame", u"CNIC", None))
         self.passoword_lable.setText(QCoreApplication.translate("Frame", u"PASSWORD", None))
         self.login_as_lable.setText(QCoreApplication.translate("Frame", u"LOGIN AS", None))
